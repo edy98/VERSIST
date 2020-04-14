@@ -24,16 +24,31 @@
       </nav>
 
       <div class="container">
-        <div class="panel panel-default">
+        <div class="panel panel-default" id="file-drag" >
           <div class="panel-body">
             <div class=" top center-block">
-              <img src="img/upload-cloud.png" alt="">
+              <!--img src="img/upload-cloud.png" alt="">
               <p class="top">Arrastra y coloca los archivos aquí</p>
-              <p>O</p>
-              <form class="" action="" method="post">
-                <div class="form-group">
-                  <input type="submit" class="btn btn-lg btn-primary" value="Burcar Archivos">
-                </div>
+              <p>O</p-->
+              <form id="file-upload-form" action="<?php echo $_SERVER['PHP_SELF'] ?>" enctype="multipart/form-data">
+                <!--div class="form-group">
+                  <input type="submit" class="btn btn-lg btn-primary" value="Buscar Archivos">
+                </div-->
+                <input id="file-upload" type="file" name="fileUpload" />
+                <label for="file-upload" >
+                  <img src="img/upload-cloud.png" alt="">
+                  <p class="top">Arrastra y coloca los archivos aquí</p>
+                  <p>O</p>
+                  
+                  <input type="submit" class="btn btn-lg btn-primary" value="Buscar Archivos">
+                </label>
+  
+                <progress id="file-progress" value="0">
+                  <span>0</span>%
+                </progress>
+                
+                <output for="file-upload" id="messages">
+                </output>
               </form>
             </div>
           </div>
@@ -41,5 +56,9 @@
       </div>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/drag-drog.js"></script>
+
+
+
   </body>
 </html>
