@@ -18,12 +18,17 @@
 
 	function fileDragHover(e) {
 		var fileDrag = document.getElementById('file-drag');
+		var modal = document.getElementById('myModal');
 
 		e.stopPropagation();
 		e.preventDefault();
-		
-		fileDrag.className = (e.type === 'dragover' ? 'hover' : 'modal-body file-upload');
+    //e.target.className = (e.type == "dragover" ? "hover" :"myModal file-upload" );
+		fileDrag.className = (e.type === 'dragover' ? 'hover' : '');
+		modal.className = (e.type === 'dragover' ? 'hover' : '');
+		//document.getElementById('myModal').showModal();
 	}
+
+
 
 	function fileSelectHandler(e) {
 		// Fetch FileList object
@@ -88,7 +93,7 @@
 				xhr.onreadystatechange = function(e) {
 					if (xhr.readyState == 4) {
 						// Everything is good!
-						
+
 						// progress.className = (xhr.status == 200 ? "success" : "failure");
 						// document.location.reload(true);
 					}

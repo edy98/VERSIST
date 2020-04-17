@@ -18,8 +18,7 @@
     position: relative;
     top: 0; left: 0; bottom: 0; right: 0;
     width:50%;
-    height:50%;
-   
+    height:40%;
     text-align:center;
 }
 
@@ -46,8 +45,8 @@ input[type="file"] {
 }
 
 #file-drag {
-  border: 2px dashed #555;
-  
+  border: 2px solid #555;
+
   color         : #555;
   cursor        : pointer;
   display       : block;
@@ -58,17 +57,17 @@ input[type="file"] {
   transition    : background 0.3s, color 0.3s;
 }
 
-#file-drag:hover {
-  background : #ddd;
+#file-drag.hover{
+  background : #BBBBBB;
 }
 
-#file-drag:hover,
-#file-drag.hover {
+#file-drag.hover{
   border-color : #3070A5;
   border-style : solid;
   box-shadow   : inset 0 3px 4px #888;
   color        : #3070A5;
 }
+
 
 #file-progress {
   display : none;
@@ -80,14 +79,39 @@ input[type="file"] {
   margin : auto;
 }
 
-#file-upload-btn:hover {
+#file-upload-btn.hover {
   background : #4499c9;
 }
 
 #file-upload-form {
-  margin : auto;  
+  margin : auto;
   width  : 40%;
 }
+
+#myModal{
+  display: none;
+}
+
+#myModal.hover{
+    display: block;
+    z-index: 1;
+    height: 90px;
+    width: 450px;
+    background-color: white;
+    margin-top: 146px;
+
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+
+    color: black;
+    padding: 25px;
+
+}
+
+
 
 progress {
   appearance    : none;
@@ -100,18 +124,18 @@ progress {
 
 progress[value]::-webkit-progress-value {
   background :
-    -webkit-linear-gradient(-45deg, 
+    -webkit-linear-gradient(-45deg,
       transparent 33%,
-      rgba(0, 0, 0, .2) 33%, 
+      rgba(0, 0, 0, .2) 33%,
       rgba(0,0, 0, .2) 66%,
       transparent 66%),
     -webkit-linear-gradient(right,
       #005f95,
       #07294d);
   background :
-    linear-gradient(-45deg, 
+    linear-gradient(-45deg,
       transparent 33%,
-      rgba(0, 0, 0, .2) 33%, 
+      rgba(0, 0, 0, .2) 33%,
       rgba(0,0, 0, .2) 66%,
       transparent 66%),
     linear-gradient(right,
@@ -123,18 +147,18 @@ progress[value]::-webkit-progress-value {
 
 progress[value]::-moz-progress-bar {
   background :
-  -moz-linear-gradient(-45deg, 
+  -moz-linear-gradient(-45deg,
     transparent 33%,
-    rgba(0, 0, 0, .2) 33%, 
+    rgba(0, 0, 0, .2) 33%,
     rgba(0,0, 0, .2) 66%,
     transparent 66%),
   -moz-linear-gradient(right,
     #005f95,
     #07294d);
   background :
-    linear-gradient(-45deg, 
+    linear-gradient(-45deg,
       transparent 33%,
-      rgba(0, 0, 0, .2) 33%, 
+      rgba(0, 0, 0, .2) 33%,
       rgba(0,0, 0, .2) 66%,
       transparent 66%),
     linear-gradient(right,
