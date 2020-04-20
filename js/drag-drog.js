@@ -45,7 +45,7 @@
 	}
 
 	//se manda el mensaje al div de messages
-	function output(msg) {
+	/*function output(msg) {
 		var m = document.getElementById('messages');
 		m.innerHTML = msg;
 	}
@@ -59,7 +59,7 @@
 			+ '</ul>'
 		);
 	}
-	
+
 	function setProgressMaxValue(e) {
 		var pBar = document.getElementById('file-progress');
 
@@ -74,41 +74,69 @@
 		if (e.lengthComputable) {
 			pBar.value = e.loaded;
 		}
-	}
+	}*/
 
 	function uploadFile(file) {
+		var xhr = new XMLHttpRequest();
+		fileSizeLimit = 1024;
+		if (xhr.upload && file.size <= fileSizeLimit * 1024 * 1024) {
+			if (file.type == "text/xml") {
+				$("#modal_error").modal('hide');
+			//ProgressBar
+			//var o = document.getElementById('progress')//$id("");
 
-		var xhr = new XMLHttpRequest(),
-			fileInput = document.getElementById('class-roster-file'),
-			pBar = document.getElementById('file-progress'),
-			fileSizeLimit = 1024;	// In MB
-		if (xhr.upload) {
-			// Check if file is less than x MB
-			if (file.size <= fileSizeLimit * 1024 * 1024) {
-				// Progress bar
-				pBar.style.display = 'inline';
-				xhr.upload.addEventListener('loadstart', setProgressMaxValue, false);
-				xhr.upload.addEventListener('progress', updateFileProgress, false);
+			//Create element with class
+			//var p = document.createElement("p");
+			//p.setAttribute('class', 'uploadProgressBar');
+			//p.classList.add("uploadProgressBar");
+			//var node = document.createTextNode("p");
+			//End
+		//	var progress = o.appendChild(document.createElement("p"));
+		//	progress.appendChild(document.createTextNode(file.name));
+		$("#modal_id").modal('show');
+		xhr.upload.addEventListener("progress",function(evt){
+			if (evt.lengthComputable) {
+				var percentComplete = evt.loaded / evt.total;
+				percentComplete = parseInt(percentComplete * 100);
+				$('.uploadProgressBar').attr('aria-valuenow',percentComplete).css('width', percentComplete + '%').text(percentComplete + '%');
 
-				// File received / failed
+				if (percentComplete == 100) {
+					//$("#modal_id").modal('hide');
+					location.href="php/sube.php";
+				}
+			}
+		}, false);
+
+		//progressbar
+
+				/*xhr.upload.addEventListener("progress", function(e){
+					var pc = parseInt(e.loaded / e.total * 100);
+					progress.style.backgroundPosition = pc + "% 0";
+				}, false);
+					// file received/failed
 				xhr.onreadystatechange = function(e) {
 					if (xhr.readyState == 4) {
-						// Everything is good!
-
-						// progress.className = (xhr.status == 200 ? "success" : "failure");
-						// document.location.reload(true);
+						progress.className = (xhr.status == 200 ? "success" : "failure");
+						$("#modal_id").modal('hide');
+						//document.location.reload(true);
 					}
-				};
+				};*/
 
 				//Start upload
-				xhr.open('POST', document.getElementById('file-upload-form').action, true);
-				xhr.setRequestHeader('X-File-Name', file.name);
-				xhr.setRequestHeader('X-File-Size', file.size);
-				xhr.setRequestHeader('Content-Type', 'multipart/form-data');
-				xhr.send(file);
+				var formData = new FormData();
+				formData.append("xml", file);
 
+
+				xhr.open('POST', "php/sube.php");
+				xhr.setRequestHeader('Content-Type', 'multipart/form-data');
+				xhr.send(formData);
+
+
+				/*xhr.open("POST", document.getElementById('file-upload-form').action, true);
+				xhr.setRequestHeader("X-File-Name", file.name);
+				xhr.send(file);*/
 				//var fileSelect = document.getElementById('file-upload');
-				/* 	
+				/*
 				// Is XHR2 available?
 				var xmlhttp = new XMLHttpRequest();
 
@@ -118,18 +146,18 @@
 				xmlhttp.open("GET","versist.xml",false); // tambien puedes poner http://localhost/miCodigo.xml
 				xmlhttp.send();
 				xmlDoc=xmlhttp.responseXML;
-		 
+
 				var strBuffer= "";
-		 
+
 				// obtenemos los datos genericos del RSS
 				title=xmlDoc.getElementsByTagName("title")[0].innerHTML;
 				link=xmlDoc.getElementsByTagName("link")[0].innerHTML;
 				desc=xmlDoc.getElementsByTagName("description")[0].innerHTML;
-		 
+
 				strBuffer=strBuffer+"<h1>"+title+"</h1>";
 				strBuffer = strBuffer +"<div class='link'><a href='"+link+"' target='_blank'>"+link+"</a></div>";
 				strBuffer = strBuffer +"<div class='desc'>"+desc+"</div><hr>";
-		 
+
 				// Recorremos todos los <item> del RSS
 				var x=xmlDoc.getElementsByTagName("item");
 				for (i=0;i<x.length;i++)
@@ -140,7 +168,7 @@
 					issue=x[i].getElementsByTagName("issuelinks")[0].childNodes[0].nodeValue;
 					component=x[i].getElementsByTagName("component")[0].childNodes[0].nodeValue;
 					file=x[i].getElementsByTagName("attachments")[0].childNodes[0].nodeValue;
-		 
+
 					strBuffer = strBuffer +"<h2>"+key+"</h2>";
 					strBuffer = strBuffer +"<div class='type'>"+type+"</div>";
 					strBuffer = strBuffer +"<div class='status'>"+status+"</div>";
@@ -156,7 +184,7 @@
 */
 
 			} else {
-				output('Please upload a smaller file (< ' + fileSizeLimit + ' MB).');
+				$("#modal_error").modal('show');
 			}
 		}
 	}
