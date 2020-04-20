@@ -29,7 +29,7 @@
 	}
 
 
-
+	//mantiene el archivo
 	function fileSelectHandler(e) {
 		// Fetch FileList object
 		var files = e.target.files || e.dataTransfer.files;
@@ -39,16 +39,17 @@
 
 		// Process all File objects
 		for (var i = 0, f; f = files[i]; i++) {
-			parseFile(f);
+			//parseFile(f);
 			uploadFile(f);
 		}
 	}
 
+	//se manda el mensaje al div de messages
 	function output(msg) {
 		var m = document.getElementById('messages');
 		m.innerHTML = msg;
 	}
-
+	//devuelve los datos del archivo
 	function parseFile(file) {
 		output(
 			'<ul>'
@@ -58,7 +59,7 @@
 			+ '</ul>'
 		);
 	}
-
+	
 	function setProgressMaxValue(e) {
 		var pBar = document.getElementById('file-progress');
 
@@ -99,12 +100,61 @@
 					}
 				};
 
-				// Start upload
+				//Start upload
 				xhr.open('POST', document.getElementById('file-upload-form').action, true);
 				xhr.setRequestHeader('X-File-Name', file.name);
 				xhr.setRequestHeader('X-File-Size', file.size);
 				xhr.setRequestHeader('Content-Type', 'multipart/form-data');
 				xhr.send(file);
+
+				//var fileSelect = document.getElementById('file-upload');
+				/* 	
+				// Is XHR2 available?
+				var xmlhttp = new XMLHttpRequest();
+
+				// El archivo xml tiene que estar en el mismo servidor que el código javascript.
+				// Por temas de seguridad, no se permite acceder desde javascript a archivos
+				// alojados en otro servidor
+				xmlhttp.open("GET","versist.xml",false); // tambien puedes poner http://localhost/miCodigo.xml
+				xmlhttp.send();
+				xmlDoc=xmlhttp.responseXML;
+		 
+				var strBuffer= "";
+		 
+				// obtenemos los datos genericos del RSS
+				title=xmlDoc.getElementsByTagName("title")[0].innerHTML;
+				link=xmlDoc.getElementsByTagName("link")[0].innerHTML;
+				desc=xmlDoc.getElementsByTagName("description")[0].innerHTML;
+		 
+				strBuffer=strBuffer+"<h1>"+title+"</h1>";
+				strBuffer = strBuffer +"<div class='link'><a href='"+link+"' target='_blank'>"+link+"</a></div>";
+				strBuffer = strBuffer +"<div class='desc'>"+desc+"</div><hr>";
+		 
+				// Recorremos todos los <item> del RSS
+				var x=xmlDoc.getElementsByTagName("item");
+				for (i=0;i<x.length;i++)
+				{
+					key=x[i].getElementsByTagName("key")[0].childNodes[0].nodeValue;
+					type=x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue;
+					status=x[i].getElementsByTagName("status")[0].childNodes[0].nodeValue;
+					issue=x[i].getElementsByTagName("issuelinks")[0].childNodes[0].nodeValue;
+					component=x[i].getElementsByTagName("component")[0].childNodes[0].nodeValue;
+					file=x[i].getElementsByTagName("attachments")[0].childNodes[0].nodeValue;
+		 
+					strBuffer = strBuffer +"<h2>"+key+"</h2>";
+					strBuffer = strBuffer +"<div class='type'>"+type+"</div>";
+					strBuffer = strBuffer +"<div class='status'>"+status+"</div>";
+					strBuffer = strBuffer +"<div class='status'>"+issue+"</div>";
+					strBuffer = strBuffer +"<div class='status'>"+component+"</div>";
+					strBuffer = strBuffer +"<div class='status'>"+file+"</div>";
+
+					if(i==10){
+						break;
+					}
+				}
+				document.getElementById(param).innerHTML =strBuffer;
+*/
+
 			} else {
 				output('Please upload a smaller file (< ' + fileSizeLimit + ' MB).');
 			}
