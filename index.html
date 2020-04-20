@@ -3,8 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>Bienvenido</title>
-    <link rel="stylesheet" href="css/estilos.css">
+    <!--link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="css/dropzone.css" /-->
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark" >
@@ -22,9 +24,6 @@
         </ul>
       </div>
       </nav>
-      <div class="square">
-
-      </div>
       <div class="container">
         <div class="panel panel-default" id="file-drag" >
           <div class="panel-body">
@@ -34,20 +33,20 @@
               </div>
               <img src="img/upload-cloud.png" alt="">
               <p class="top">Arrastra y coloca los archivos aquí</p>
+              <!--
                   <p>O</p>
-                  <form id="file-upload-form" action="<?php echo $_SERVER['PHP_SELF'] ?>" enctype="multipart/form-data">
-                    <!--div class="form-group">
-                      <input type="submit" class="btn btn-lg btn-primary" value="Buscar Archivos">
-                    </div-->
+                  <form id="file-upload-form" action="php/sube.php" method="post" enctype="multipart/form-data">
+
+
                     <input id="file-upload" type="file" name="fileUpload" />
                     <label for="file-upload" >
                   <span id="file-upload-btn" class="button btn btn-lg btn-primary">Buscar Archivos</span>
-                  <!--<input type="submit" class="btn btn-lg btn-primary submit-button" value="Buscar Archivos"/>-->
-                </label>
+                 
+                </label>-->
 
                 <!--  Modal start -->
 
-                <!-- Modal end-->
+                <!-- Modal end--><!--
                 <progress id="file-progress" value="0">
                   <span>0</span>%
                 </progress>
@@ -58,13 +57,22 @@
             </div>
           </div>
         </div>
+          -->
+          <form action="php/sube.php" method="post" enctype="multipart/form-data">
+                <input id="file-upload" type="file" name="file-upload"/>
+                <br><br>
+                <button>Subir Archivo</button>
+          </form>   
+            
       </div>
 
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/drag-drog.js"></script>
+    <!--script src="js/datos.js"></script>
 
-
+    
+    <script type="text/javascript" src="js/dropzone.js"></script-->
 
   </body>
 </html>

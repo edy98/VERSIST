@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?> 
+<frutas> 
+     <articulo codigo="A1" color="naranja"> 
+          <identificador>1</identificador> 
+          <nombre>Naranja</nombre> 
+          <precio>7,25</precio> 
+     </articulo> 
+     <articulo codigo="A2" color="amarillo"> 
+          <identificador>2</identificador> 
+          <nombre>Albaricoque</nombre> 
+          <precio>2,50</precio> 
+     </articulo> 
+     <articulo codigo="A3" color="rojo"> 
+          <identificador>3</identificador> 
+          <nombre>Cereza</nombre> 
+          <precio>3,95</precio> 
+     </articulo> 
+     <articulo codigo="A4" color="rojo"> 
+          <identificador>4</identificador> 
+          <nombre>Fresa</nombre> 
+          <precio>9,95</precio> 
+     </articulo> 
+     <articulo codigo="A5" color="amarillo"> 
+          <identificador>5</identificador> 
+          <nombre>Ciruela</nombre> 
+          <precio>7,25</precio> 
+     </articulo>
+     <articulo codigo="A6" color="amarillo"> 
+          <identificador>6</identificador> 
+          <nombre>Pomelo</nombre> 
+         <precio>6,25</precio> 
+     </articulo>      
+</frutas>

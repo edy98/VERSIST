@@ -1,19 +1,36 @@
-<?php
-$fn = (isset($_SERVER['HTTP_X_FILE_NAME']) ? $_SERVER['HTTP_X_FILE_NAME'] : false);
-$targetDir = 'tmp/';
+<!--?php
 
-if ($fn) {
-            if (isFileValid($fn)) {
-              // AJAX call
-              file_put_contents(
-                $targetDir . $fn,
-                file_get_contents('php://input')
-              );
-              removeFile($fn);
-            }
-}
+$conn = mysqli_connect("localhost", "root", "","appinbur");
 
-function removeFile($file) {
-  unlink($targetDir . $file);
+$affectedRow = 0;
+
+$xml = simplexml_load_file() or die("Error: Cannot create object");
+
+foreach ($xml->children() as $row) {
+    $key = $row->key;
+    $type = $row->type;
+    $status = $row->status;
+    $issue = $row->issuekey;
+    $component = $row->component;
+    $attachment = $row->attachment;
+    
+    $sql = "INSERT INTO versist(clave,tipo_incidencia,estatus,componentes,incidencias_enlazadas,archivos_adjuntos) VALUES ('" . $key . "','" . $type . "','" . $status . "','" . $issue . "','" . $component . "','" . $attachment . "')";
+    
+    $result = mysqli_query($conn, $sql);
+    
+    if (! empty($result)) {
+        $affectedRow ++;
+    } else {
+        $error_message = mysqli_error($conn) . "n";
+    }
 }
 ?>
+<h2>Insert XML Data to MySql Table Output</h2>
+<!?php
+if ($affectedRow > 0) {
+    $message = $affectedRow . " records inserted";
+} else {
+    $message = "No records inserted";
+}
+
+?-->
