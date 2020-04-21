@@ -22,23 +22,15 @@
     text-align:center;
 }
 
-.contenedor{
-  margin: 5%;
-  position: relative;
-  top: 0; left: 0; bottom: 0; right: 0;
-  width:50%;
-  height:40%;
-  text-align:center;
-}
-
 p{
-  font-weight: bold;
-  font-size: 20px;
-  text-align: center;
+
 }
 
 .top{
   margin-top: 18px;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
 }
 
 
@@ -121,61 +113,12 @@ input[type="file"] {
 
 }
 
-
-
-progress {
-  appearance    : none;
-  background    : #eee;
-  border        : none;
-  border-radius : 3px;
-  box-shadow    : 0 2px 5px rgba(0, 0, 0, 0.25) inset;
-  height        : 30px;
+.progress-bar {
+    background-color: #02254C !important;
 }
 
-progress[value]::-webkit-progress-value {
-  background :
-    -webkit-linear-gradient(-45deg,
-      transparent 33%,
-      rgba(0, 0, 0, .2) 33%,
-      rgba(0,0, 0, .2) 66%,
-      transparent 66%),
-    -webkit-linear-gradient(right,
-      #005f95,
-      #07294d);
-  background :
-    linear-gradient(-45deg,
-      transparent 33%,
-      rgba(0, 0, 0, .2) 33%,
-      rgba(0,0, 0, .2) 66%,
-      transparent 66%),
-    linear-gradient(right,
-      #005f95,
-      #07294d);
-  background-size : 60px 30px, 100% 100%, 100% 100%;
-  border-radius   : 3px;
-}
-
-progress[value]::-moz-progress-bar {
-  background :
-  -moz-linear-gradient(-45deg,
-    transparent 33%,
-    rgba(0, 0, 0, .2) 33%,
-    rgba(0,0, 0, .2) 66%,
-    transparent 66%),
-  -moz-linear-gradient(right,
-    #005f95,
-    #07294d);
-  background :
-    linear-gradient(-45deg,
-      transparent 33%,
-      rgba(0, 0, 0, .2) 33%,
-      rgba(0,0, 0, .2) 66%,
-      transparent 66%),
-    linear-gradient(right,
-      #005f95,
-      #07294d);
-  background-size : 60px 30px, 100% 100%, 100% 100%;
-  border-radius   : 3px;
+.tabs{
+  background-color: #02254C;
 }
 
 ul {
@@ -187,3 +130,33 @@ ul {
 .table{
   border: 2px solid #555;
 }
+
+.close {
+    color: #fff !important;
+    opacity: 2;
+}
+
+.close:hover {
+    color: #fff !important;
+    opacity: 2;
+}
+
+/*#progress p.success
+{
+	background: #02254C none 0 0 no-repeat;
+}
+
+#progress p.failure
+{
+	background: #c00 none 0 0 no-repeat;
+}
+#progress p
+{
+	display: block;
+	width: 240px;
+	padding: 2px 5px;
+	margin: 2px 0;
+	border: 1px inset #446;
+	border-radius: 5px;
+  color: white;
+}*/

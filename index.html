@@ -24,20 +24,22 @@
         </ul>
       </div>
       </nav>
+
       <div class="container">
         <div class="panel panel-default" id="file-drag" >
           <div class="panel-body">
             <div class=" top center-block">
+              <form id="file-upload-form" action="php/action.php" method="post" enctype="multipart/form-data">
               <div class="" id="myModal">
                 <p id="text">Suelte los archivos aquí</p>
               </div>
               <img src="img/upload-cloud.png" alt="">
               <p class="top">Arrastra y coloca los archivos aquí</p>
-              <!--
-                  <p>O</p>
-                  <form id="file-upload-form" action="php/sube.php" method="post" enctype="multipart/form-data">
+                  <p class="top">O</p>
 
-
+                    <!--div class="form-group">
+                      <input type="submit" class="btn btn-lg btn-primary" value="Buscar Archivos">
+                    </div-->
                     <input id="file-upload" type="file" name="fileUpload" />
                     <label for="file-upload" >
                   <span id="file-upload-btn" class="button btn btn-lg btn-primary">Buscar Archivos</span>
@@ -45,15 +47,50 @@
                 </label>-->
 
                 <!--  Modal start -->
+                <div class="modal fade" id="modal_id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header tabs">
+                        <h5 class="modal-title text-white" id="exampleModalLabel">Subiendo Archivo</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="progress"  style="height: 2.5em;" >
 
-                <!-- Modal end--><!--
-                <progress id="file-progress" value="0">
-                  <span>0</span>%
-                </progress>
+                          <div class="progress-bar uploadProgressBar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-primary uploading_close_btn" data-dismiss="modal">Cerrar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Modal end-->
+                <div class="modal fade" id="modal_error" tabindex="-1" role="dialog" aria-labelledby="exampleModal" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header tabs">
+                        <h5 class="modal-title text-white" id="exampleModal">No se pudo subir el archivo</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p class="error">Solo puedes subir archivos con extensión .xml, verifica que la extensión sea la correcta.</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Modal error -->
 
-                <output for="file-upload" id="messages">
-                </output>
-              </form>
+                <!-- -->
+
             </div>
           </div>
         </div>
@@ -66,6 +103,11 @@
 
       </div>
 
+      <!--<form action="php/sube.php" method="post" enctype="multipart/form-data">
+            <input id="file-upload" type="file" name="file-upload"/>
+            <br><br>
+            <button>Subir Archivo</button>
+      </form>-->
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/drag-drog.js"></script>
