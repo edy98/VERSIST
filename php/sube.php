@@ -1,8 +1,8 @@
 <?php
 
 
-$nombre=$_FILES['file-upload']['name'];
-$guardado=$_FILES['file-upload']['tmp_name'];
+$nombre=$_FILES['xml']['name'];
+$guardado=$_FILES['xml']['tmp_name'];
 
 if(!file_exists('archivos')){
 	mkdir('archivos',0777,true);
