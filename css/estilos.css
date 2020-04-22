@@ -113,6 +113,28 @@ input[type="file"] {
 
 }
 
+#myModal2{
+  display: none;
+}
+
+#myModal2.hover{
+  display: block;
+  z-index: 1;
+  height: 90px;
+  width: 450px;
+  background-color: white;
+  margin-top: 146px;
+
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+
+  color: black;
+  padding: 25px;
+}
+
 .progress-bar {
     background-color: #02254C !important;
 }
