@@ -29,9 +29,12 @@
         <div class="panel panel-default" id="file-drag" >
           <div class="panel-body">
             <div class=" top center-block">
-              <form id="file-upload-form" action="php/action.php" method="post" enctype="multipart/form-data">
+              <form id="file-upload-form" name="file-upload-form" method="post" enctype="multipart/form-data">
               <div class="" id="myModal">
                 <p id="text">Suelte los archivos aquí</p>
+              </div>
+              <div class="" id="myModal2">
+                <p id="text">Arraste los archivos aquí</p>
               </div>
               <img src="img/upload-cloud.png" alt="">
               <p class="top">Arrastra y coloca los archivos aquí</p>
@@ -40,7 +43,7 @@
                     <!--div class="form-group">
                       <input type="submit" class="btn btn-lg btn-primary" value="Buscar Archivos">
                     </div-->
-                    <input id="file-upload" type="file" name="fileUpload" />
+                    <input id="file-upload" name="file-upload" type="file"  />
                     <label for="file-upload" >
                   <span id="file-upload-btn" class="button btn btn-lg btn-primary">Buscar Archivos</span>
                   <!--<input type="submit" class="btn btn-lg btn-primary submit-button" value="Buscar Archivos"/>-->
