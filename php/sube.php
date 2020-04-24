@@ -1,6 +1,6 @@
 <?php
+include 'insertarVersist.php';
 
-include 'mostrar.php';
 $nombre=$_FILES['xml']['name'];
 $guardado=$_FILES['xml']['tmp_name'];
 
@@ -11,7 +11,6 @@ if(!file_exists('archivos')){
 			//echo "Archivo guardado con exito <a href='.$nombre.'>";
 			$ruta = 'archivos/'.$nombre;
 			//echo $nombre;
-
 			almacenarDatos($ruta);
 
 		}else{
@@ -23,9 +22,9 @@ if(!file_exists('archivos')){
 		/*echo "Archivo guardado con exito <a href='.$nombre.'>";echo $ruta;*/
 		$ruta = 'archivos/'.$nombre;
 		almacenarDatos($ruta);
-
 	}else{
 		echo "Archivo no se pudo guardar";
 	}
 }
 
+?>
