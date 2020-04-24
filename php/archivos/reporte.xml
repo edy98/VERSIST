@@ -1,0 +1,254 @@
+<rss version="0.92">
+<channel>
+<title>INBURSA JIRA</title>
+<link>http://vtsvapjira01:8080</link>
+<description>
+Este archivo es una representación XML de una incidencia
+</description>
+<language>es-es</language>
+<build-info>
+<version>7.11.0</version>
+<build-number>711000</build-number>
+<build-date>11-07-2018</build-date>
+</build-info>
+<item>
+<title>
+[RPN-32922] Corrección a RPN-25812 INTEGRACIÓN MH ASSIST - OPENPAY
+</title>
+<link>http://vtsvapjira01:8080/browse/RPN-32922</link>
+<project id="10150" key="RPN">Requerimiento de Desarrollo Sistemas</project>
+<description/>
+<environment/>
+<key id="832207">RPN-32922</key>
+<summary>
+Corrección a RPN-25812 INTEGRACIÓN MH ASSIST - OPENPAY
+</summary>
+<type id="103" iconUrl="http://vtsvapjira01:8080/images/icons/issuetypes/requirement.png">Corrección a Incidencia </type>
+<priority id="5" iconUrl="http://vtsvapjira01:8080/images/icons/priorities/trivial.svg">Superficial</priority>
+<status id="10023" iconUrl="http://vtsvapjira01:8080/images/icons/statuses/generic.png" description="">Terminado</status>
+<statusCategory id="4" key="indeterminate" colorName="yellow"/>
+<resolution id="1">Corregido</resolution>
+<security id="10050">Asignado, Creador y Seguidores</security>
+<assignee username="dcastellanosh">David Rafael Castellanos Herrera</assignee>
+<reporter username="cbelman">Cesar Belman</reporter>
+<labels> </labels>
+<created>Wed, 27 Mar 2019 13:24:39 -0600</created>
+<updated>Thu, 27 Feb 2020 21:48:12 -0600</updated>
+<resolved>Fri, 5 Jul 2019 13:49:33 -0500</resolved>
+<component>SI. Adm. Ventas</component>
+<due/>
+<watches>8</watches>
+<comments>
+<comment id="1784647" author="cbelman" created="Tue, 2 Apr 2019 18:05:25 -0600"><p>Se adjunta documentación.</p> <p>Saludos.!</p></comment>
+<comment id="1792198" author="emartinezt" created="Tue, 9 Apr 2019 14:02:54 -0500">
+<p>Se valida por el subdirector Andres Rojas, se adjunta evidencia</p>
+</comment>
+<comment id="1878402" author="emartinezt" created="Fri, 5 Jul 2019 13:49:33 -0500">
+<p>De: Alberto Gudino Fernandez <br/> Enviado el: viernes, 5 de julio de 2019 01:34 p. m.<br/> Para: Oficina de Proyectos GFI<br/> CC: Mary Carmen Cuevas Reyes; Felix Villaseñor Patiño<br/> Asunto: Jiras regresar Status a ESTIMADO POR SISTEMAS.</p>
+</comment>
+<comment id="1884392" author="emartinezt" created="Thu, 11 Jul 2019 13:48:43 -0500"><p>Portafolio 3T19</p></comment>
+<comment id="2116926" author="rdeleonc" created="Thu, 27 Feb 2020 14:35:13 -0600">
+<p>Se adjunta archivos BI QA y RPN con firma actualizada de Subdirector de Mercados Masivos.</p> <p> </p> <p> </p> <p> </p> <p> </p> <p>Saludos!!</p>
+</comment>
+<comment id="2117633" author="romartinezv" created="Thu, 27 Feb 2020 21:48:12 -0600"><p>De acuerdo con la matriz de desarrollo.</p></comment>
+</comments>
+<issuelinks>
+<issuelinktype id="10000">
+<name>Ligar Incidencia</name>
+<inwardlinks description="esta Ligado desde">
+<issuelink>
+<issuekey id="1025272">VERSIST-10923</issuekey>
+</issuelink>
+</inwardlinks>
+</issuelinktype>
+</issuelinks>
+<attachments>
+<attachment id="1828556" name="BI-QA_32922.docx" size="267890" author="rdeleonc" created="Thu, 27 Feb 2020 14:34:36 -0600"/>
+<attachment id="1828557" name="BI-QA_32922.pdf" size="764775" author="rdeleonc" created="Thu, 27 Feb 2020 14:34:40 -0600"/>
+<attachment id="1828558" name="BI-RPN_32922.pdf" size="115590" author="rdeleonc" created="Thu, 27 Feb 2020 14:34:37 -0600"/>
+<attachment id="1505726" name="BI-RPN_RPN-32922.docx" size="60707" author="aoleap" created="Tue, 9 Apr 2019 12:49:23 -0500"/>
+<attachment id="1829143" name="Matriz_MD_RPN-32922.docx" size="631321" author="anaguilars" created="Thu, 27 Feb 2020 19:20:34 -0600"/>
+<attachment id="1493424" name="RE ATENCION INCIDENCIA 32922.msg" size="57856" author="cbelman" created="Fri, 29 Mar 2019 15:15:33 -0600"/>
+<attachment id="1633845" name="RPN-MP_32922.docx" size="973031" author="cbelman" created="Wed, 14 Aug 2019 19:07:52 -0500"/>
+<attachment id="1689812" name="RPN-MP_32922.pdf" size="138226" author="cbelman" created="Fri, 11 Oct 2019 10:32:19 -0500"/>
+<attachment id="1505877" name="RV Validar Jiras Salud Interactiva .msg" size="45568" author="emartinezt" created="Tue, 9 Apr 2019 14:02:51 -0500"/>
+</attachments>
+<subtasks>
+<subtask id="840704">RPN-33537</subtask>
+</subtasks>
+<customfields>
+<customfield id="customfield_13109" key="com.pyxis.greenhopper.jira:gh-lexo-rank">
+<customfieldname>Clasificación</customfieldname>
+<customfieldvalues>
+<customfieldvalue>0|i3vfjw:</customfieldvalue>
+</customfieldvalues>
+</customfield>
+<customfield id="customfield_13200" key="com.atlassian.jira.plugins.jira-development-integration-plugin:devsummary">
+<customfieldname>Desarrollo</customfieldname>
+<customfieldvalues> </customfieldvalues>
+</customfield>
+<customfield id="customfield_10510" key="com.atlassian.jira.plugin.system.customfieldtypes:textarea">
+<customfieldname>Descripción Funcional</customfieldname>
+<customfieldvalues>
+<customfieldvalue>
+Para correcci&#xF3;n de <a href="http://vtsvapjira01:8080/browse/RPN-25812" title="Módulos de reportes y campos para implementar cobranza vía Openpay en aplicación de ventas MH ASSIST y modificación al proceso de Auditoría." class="issue-link" data-issue-key="RPN-25812">RPN-25812</a> que no registra el n&#xFA;mero telef&#xF3;nico ni apellido Paterno en OPENPAY de la campa&#xF1;a MEDICALL HOME TARJETA DE CR&#xC9;DITO (ASSIST)
+</customfieldvalue>
+</customfieldvalues>
+</customfield>
+<customfield id="customfield_10843" key="com.atlassian.jira.plugin.system.customfieldtypes:select">
+<customfieldname>Dirección solicitante</customfieldname>
+<customfieldvalues>
+<customfieldvalue key="15229">
+<![CDATA[ DIR. GENERAL SALUD INTERACTIVA ]]>
+</customfieldvalue>
+</customfieldvalues>
+</customfield>
+<customfield id="customfield_13402" key="com.atlassian.jira.plugin.system.customfieldtypes:url">
+<customfieldname>Enlace a proyecto</customfieldname>
+<customfieldvalues>
+<customfieldvalue>
+<![CDATA[ http://vtsvapjira01:8080/browse/RPN32922 ]]>
+</customfieldvalue>
+</customfieldvalues>
+</customfield>
+<customfield id="customfield_10519" key="com.atlassian.jira.plugin.system.customfieldtypes:textarea">
+<customfieldname>Entregables (Grandes hitos)</customfieldname>
+<customfieldvalues>
+<customfieldvalue>Desarrollo en produccion</customfieldvalue>
+</customfieldvalues>
+</customfield>
+<customfield id="customfield_10535" key="com.atlassian.jira.plugin.system.customfieldtypes:textfield">
+<customfieldname>Esfuerzo Total (HRS)</customfieldname>
+<customfieldvalues>
+<customfieldvalue>80</customfieldvalue>
+</customfieldvalues>
+</customfield>
+<customfield id="customfield_13420" key="com.atlassian.jira.plugin.system.customfieldtypes:textarea">
+<customfieldname>Estimación de proyecto</customfieldname>
+<customfieldvalues>
+<customfieldvalue>Salud Interactiva,20,40,20,Cuicuilco;</customfieldvalue>
+</customfieldvalues>
+</customfield>
+<customfield id="customfield_10526" key="com.atlassian.jira.plugin.system.customfieldtypes:datepicker">
+<customfieldname>Fecha Estimada de Inicio</customfieldname>
+<customfieldvalues>
+<customfieldvalue>Thu, 11 Apr 2019 00:00:00 -0500</customfieldvalue>
+</customfieldvalues>
+</customfield>
+<customfield id="customfield_10517" key="com.atlassian.jira.plugin.system.customfieldtypes:datepicker">
+<customfieldname>Fecha de Entrega (Desarrollo)</customfieldname>
+<customfieldvalues>
+<customfieldvalue>Sun, 30 Jun 2019 00:00:00 -0500</customfieldvalue>
+</customfieldvalues>
+</customfield>
+<customfield id="customfield_13404" key="com.atlassian.jira.plugin.system.customfieldtypes:datepicker">
+<customfieldname>Fecha de Inicio</customfieldname>
+<customfieldvalues>
+<customfieldvalue>Fri, 7 Jun 2019 19:56:51 -0500</customfieldvalue>
+</customfieldvalues>
+</customfield>
+<customfield id="customfield_10534" key="com.atlassian.jira.plugin.system.customfieldtypes:datepicker">
+<customfieldname>Fecha de Termino Requerida</customfieldname>
+<customfieldvalues>
+<customfieldvalue>Sun, 30 Jun 2019 00:00:00 -0500</customfieldvalue>
+</customfieldvalues>
+</customfield>
+<customfield id="customfield_10845" key="com.atlassian.jira.plugin.system.customfieldtypes:select">
+<customfieldname>Gerencia solicitante</customfieldname>
+<customfieldvalues>
+<customfieldvalue key="15215">
+<![CDATA[ GCIA. ADMINISTRACION DE VENTAS SALUD ]]>
+</customfieldvalue>
+</customfieldvalues>
+</customfield>
+<customfield id="customfield_10860" key="com.atlassian.jira.plugin.system.customfieldtypes:select">
+<customfieldname>Incluido en Portafolio</customfieldname>
+<customfieldvalues>
+<customfieldvalue key="12520">
+<![CDATA[ SI ]]>
+</customfieldvalue>
+</customfieldvalues>
+</customfield>
+<customfield id="customfield_13400" key="com.atlassian.jira.plugin.system.customfieldtypes:userpicker">
+<customfieldname>Líder del proyecto</customfieldname>
+<customfieldvalues>
+<customfieldvalue>agudinof</customfieldvalue>
+</customfieldvalues>
+</customfield>
+<customfield id="customfield_10530" key="com.atlassian.jira.plugin.system.customfieldtypes:textarea">
+<customfieldname>No. Personas involucradas en el proyecto</customfieldname>
+<customfieldvalues>
+<customfieldvalue>
+Salud Interactiva M&#xE9;xico,24,40,24,Cuicuilco; <br/>
+</customfieldvalue>
+</customfieldvalues>
+</customfield>
+<customfield id="customfield_10528" key="com.atlassian.jira.plugin.system.customfieldtypes:userpicker">
+<customfieldname>PM Responsable</customfieldname>
+<customfieldvalues>
+<customfieldvalue>agudinof</customfieldvalue>
+</customfieldvalues>
+</customfield>
+<customfield id="customfield_13403" key="com.atlassian.jira.plugin.system.customfieldtypes:textfield">
+<customfieldname>Pr. Key</customfieldname>
+<customfieldvalues>
+<customfieldvalue>RPN32922</customfieldvalue>
+</customfieldvalues>
+</customfield>
+<customfield id="customfield_12400" key="com.atlassian.jira.plugin.system.customfieldtypes:select">
+<customfieldname>Prioridad Sistemas</customfieldname>
+<customfieldvalues>
+<customfieldvalue key="13982">
+<![CDATA[ Amarillo ]]>
+</customfieldvalue>
+</customfieldvalues>
+</customfield>
+<customfield id="customfield_11512" key="com.atlassian.jira.plugin.system.customfieldtypes:select">
+<customfieldname>Sede del Desarrollo</customfieldname>
+<customfieldvalues>
+<customfieldvalue key="13094">
+<![CDATA[ Cuicuilco ]]>
+</customfieldvalue>
+</customfieldvalues>
+</customfield>
+<customfield id="customfield_10844" key="com.atlassian.jira.plugin.system.customfieldtypes:select">
+<customfieldname>Subdirección solicitante</customfieldname>
+<customfieldvalues>
+<customfieldvalue key="12512">
+<![CDATA[ SIN SUBDIRECCION ]]>
+</customfieldvalue>
+</customfieldvalues>
+</customfield>
+<customfield id="customfield_10527" key="com.atlassian.jira.plugin.system.customfieldtypes:select">
+<customfieldname>Tipo de Petición</customfieldname>
+<customfieldvalues>
+<customfieldvalue key="11333">
+<![CDATA[ Mantenimiento ]]>
+</customfieldvalue>
+</customfieldvalues>
+</customfield>
+<customfield id="customfield_13401" key="com.atlassian.jira.plugin.system.customfieldtypes:select">
+<customfieldname>Tipo de proyecto</customfieldname>
+<customfieldvalues>
+<customfieldvalue key="14780">
+<![CDATA[ Agile ]]>
+</customfieldvalue>
+</customfieldvalues>
+</customfield>
+<customfield id="customfield_10813" key="com.atlassian.jira.plugin.system.customfieldtypes:select">
+<customfieldname>Trimestre</customfieldname>
+<customfieldvalues>
+<customfieldvalue key="14952">
+<![CDATA[ 01-2020 ]]>
+</customfieldvalue>
+</customfieldvalues>
+</customfield>
+<customfield id="customfield_10120" key="com.burningcode.jira.issue.customfields.impl.jira-watcher-field:watcherfieldtype">
+<customfieldname>Usuario Cc</customfieldname>
+<customfieldvalues> </customfieldvalues>
+</customfield>
+</customfields>
+</item>
+</channel>
+</rss>
+
