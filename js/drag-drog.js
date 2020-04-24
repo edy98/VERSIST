@@ -93,7 +93,7 @@
 			processData: false,
 			contentType: false,
 			success: function(response) {
-			 //location.href="php/sube.php"
+			// location.href="php/mostrar.php";
 		  },
 			error: function(jqXHR, textStatus, errorMessage) {
 				console.log(errorMessage); // Optional

@@ -1,4 +1,6 @@
 <?php
+include "sube.php";
+$xml = simplexml_load_file($ruta);
 /*function obtenerDatos($ruta){
 //read entire file into string
    $xmlfile = file_get_contents($ruta);
@@ -16,15 +18,15 @@
 
              //bucle para recorrer los elementos del array
             for ($i = 0; $i<count($listaItems); $i++){
-        
+
                echo $listaItems[$i]["key"];
                echo $listaItems[$i]["type"];
-               echo $listaItems[$i]["status"]; 
-             
-             echo $listaItems[$i]["component"]; 
-              
-            echo $listaItems[$i]['issuelinks'][$i]['issulinktype'][$i]['outwardlinks'][$i]['issuelink'][$i]['issuekey']; 
-             echo $listaItems[$i]['attachments']['attachment'][$i]['name']; 
+               echo $listaItems[$i]["status"];
+
+             echo $listaItems[$i]["component"];
+
+            echo $listaItems[$i]['issuelinks'][$i]['issulinktype'][$i]['outwardlinks'][$i]['issuelink'][$i]['issuekey'];
+             echo $listaItems[$i]['attachments']['attachment'][$i]['name'];
 
             }
 
@@ -39,15 +41,15 @@
 */
 
 
-   function almacenarDatos($ruta){ 
+   /*function almacenarDatos($ruta){
       include 'conectar.php';
 
 
         $xml = file_get_contents($ruta);
          $DOM = new DOMDocument('1.0','utf-8');
-         
+
          $DOM->loadXML($xml);
-        
+
            $factura_xml = $DOM->getElementsByTagName('rss');
         $i = 0;
            foreach($factura_xml as $item){
@@ -69,7 +71,7 @@
                       foreach ($outwardlinks as $hijo3) {
                         # code...
                         $issuelink= $hijo3->getElementsByTagName('issuelink');
-                                    
+
                           //$j=0;
                            foreach ($issuelink as $hijo4) {
                           # code...
@@ -79,8 +81,8 @@
                              $resultado2 = $mysqli->query($comandoSQLissue);
                              //$j++;
                           }
-                        
-                       
+
+
                       }
                   }
 
@@ -99,5 +101,5 @@
               }
               $i++;
            }
-       } 
+       }*/
 ?>
