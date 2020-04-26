@@ -153,6 +153,10 @@ ul {
   border: 2px solid #555;
 }
 
+th{
+  border: 2px solid #555;
+}
+
 .close {
     color: #fff !important;
     opacity: 2;
