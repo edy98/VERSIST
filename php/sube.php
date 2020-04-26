@@ -26,5 +26,4 @@ if(!file_exists('archivos')){
 		echo "Archivo no se pudo guardar";
 	}
 }
-
 ?>
