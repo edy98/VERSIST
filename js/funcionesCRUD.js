@@ -11,8 +11,7 @@ function btnMostrar(){
         tr.innerHTML = "<td>" + value.clave + "</td>"
         + "<td>" + value.tipo_incidencia + "</td>"
         + "<td>" + value.estatus + "</td>"
-        + "<td>" + value.componentes + "</td>"
-        + "<td>" + value.incidencias_enlazadas + "</td>";
+        + "<td>" + value.componentes + "</td>";
 
       document.getElementById("datos").appendChild(tr);
       });
@@ -24,5 +23,5 @@ function btnMostrar(){
 }
 
 function hide(){
-  
+
 }
