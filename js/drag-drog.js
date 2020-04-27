@@ -79,8 +79,6 @@
 							$('.uploadProgressBar').attr('aria-valuenow',percentComplete).css('width', percentComplete + '%').text(percentComplete + '%');
 
 							if (percentComplete == 100) {
-								//$("#modal_id").modal('hide');
-							//location.href="php/sube.php";
 							}
 						}
 					}, false);
@@ -93,7 +91,7 @@
 			processData: false,
 			contentType: false,
 			success: function(response) {
-			// location.href="php/mostrar.php";
+			//location.href="html/tabla-versist.html";
 		  },
 			error: function(jqXHR, textStatus, errorMessage) {
 				console.log(errorMessage); // Optional

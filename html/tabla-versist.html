@@ -16,7 +16,7 @@
       <div class="collapse navbar-collapse" id="navbarToggle">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Inicio
+            <a class="nav-link" href="../index.html">Inicio
               <span class="sr-only">(current)</span>
             </a>
           </li>
@@ -25,21 +25,27 @@
       </nav>
 
       <div class="container">
-        <p class="archivo-correcto">Tu archivo fue subido correctamente,fsfds da click en generar, para mostrarte el resultado de la extración</p>
+        <p class="archivo-correcto">Tu archivo fue subido correctamente, da click en generar, para mostrarte el resultado de la extración</p>
 
-        <input type="submit" class="btn btn-lg btn-primary submit-button" value="Generar"/>
+        <input type="submit" class="btn btn-lg btn-primary submit-button" value="Generar" onclick="btnMostrar();"/>
       </div>
 
-
       <div class="container">
-        <table class="table">
-          <tr>
-            <td></td>
-          </tr>
+        <table class="table" id="datos">
+          <thead>
+            <tr>
+              <th>Clave</th>
+              <th>Tipo de Incidencia</th>
+              <th>Estado</th>
+              <th>Componentes</th>
+              <th>Incidencias Enlazadas</th>
+            </tr>
+          </thead>
         </table>
       </div>
 
       <script src="../js/jquery-3.4.1.min.js"></script>
       <script src="../js/bootstrap.min.js"></script>
+      <script src="../js/funcionesCRUD.js"></script>
   </body>
 </html>
