@@ -22,3 +22,7 @@ function btnMostrar(){
     }
   });
 }
+
+function hide(){
+  
+}
