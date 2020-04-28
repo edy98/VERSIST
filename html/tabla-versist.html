@@ -24,10 +24,18 @@
       </div>
       </nav>
 
-      <div class="container">
+      <div class="container" id="resultado">
         <p class="top">Tu archivo fue subido correctamente, da click en generar, para mostrarte el resultado de la extración</p>
 
-        <input type="submit" class="btn btn-lg btn-primary submit-button" value="Generar" onclick="btnMostrar();"/>
+        <input type="submit" class="btn btn-lg btn-primary submit-button" id="Generar" value="Generar" onclick="btnMostrar();"/>
+      </div>
+
+      <div class="container" style="display:none;" id="versistCancelar">
+        <p class="top">VERSIST a cancelar que no cumplieron con los criterios correspondientes</p>
+      </div>
+
+      <div class="container" style="display:none;" id="versistValidar">
+        <p class="top">VERSIST a validar que cumplieron con los criterios correspondientes</p>
       </div>
 
       <div class="container">
@@ -41,10 +49,51 @@
             </tr>
           </thead>
         </table>
-        <input type="submit" class="float-right btn btn-lg btn-primary submit-button" value="Validar Resultado" onclick=""/>
-        <input type="submit" class="float-left btn btn-lg btn-primary submit-button" value="VERSIST a Cancelar" onclick=""/>
-        <input type="submit" class="float-left ml-5 btn btn-lg btn-primary submit-button" value="VERSIST  a Validar" onclick=""/>
-        <input type="submit" class="float-right btn btn-lg btn-primary submit-button" value="Generar Lista" onclick=""/>
+        <input type="submit" class="float-right btn btn-lg btn-primary submit-button" style="display:none;" id="validar" value="Validar Resultado" onclick="validarResultadoVersist();"/>
+        <input type="submit" class="float-left btn btn-lg btn-primary submit-button" style="display:none;" id="Vcancelar" value="VERSIST a Cancelar" onclick="cancelarVersist();"/>
+        <input type="submit" class="float-left ml-5 btn btn-lg btn-primary submit-button" style="display:none;" id="Vvalidar" value="VERSIST  a Validar" onclick="validarVersist();"/>
+        <input type="submit" class="float-right btn btn-lg btn-primary submit-button" style="display:none;" id="generarReporte" value="Generar Reporte" onclick=""/>
+        <input type="submit" class="float-right btn btn-lg btn-primary submit-button" style="display:none;" id="generarListaC" data-toggle="modal" data-target="#modalCancelar" value="Generar Lista a Cancelar" onclick=""/>
+        <input type="submit" class="float-right btn btn-lg btn-primary submit-button" style="display:none;" id="generarListaV" data-toggle="modal" data-target="#modalValidar" value="Generar Lista a Validar" onclick=""/>
+      </div>
+
+      <!--Modal -->
+      <div class="modal fade" id="modalCancelar" tabindex="-1" role="dialog" aria-labelledby="modalCancelar" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header tabs">
+              <h5 class="modal-title text-white" id="modalCancelar">VERSIST a Cancelar</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Copiar al portapapeles</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- modal validar -->
+
+      <div class="modal fade" id="modalValidar" tabindex="-1" role="dialog" aria-labelledby="modalValidar" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header tabs">
+              <h5 class="modal-title text-white" id="modalValidar">VERSIST a Validar</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Copiar al portapapeles</button>
+            </div>
+          </div>
+        </div>
       </div>
 
       <script src="../js/jquery-3.4.1.min.js"></script>
