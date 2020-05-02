@@ -19,7 +19,22 @@ function almacenarDatos($ruta){
 		array_push($feed, $itemRSS);
 	}
 
+	/*
+	Esto es lo que pretendi implementar, pero aún no he probado si funciona
+	foreach ($rss ->getElementsByTagName('item') as $node2) {
+		# code...
+		$issuelinks = $node2->getElementsByTagName('issuelinks')->item(0)->nodeValue;
+		foreach ($issuelinks->getElementById('10000') as $value) {
+					# code...
+				$itemRSS2 = array(
+					'issuelink' =>$node->getElementsByTagName('issuelink')->item(0)->nodeValue
+				);
 
+				array_push($feed, $itemRSS2);
+		}
+
+	}
+	*/
 
 	//Mostrar el arreglo con el contenido extraído
 	foreach ($feed as $itemRSS => $value) {
