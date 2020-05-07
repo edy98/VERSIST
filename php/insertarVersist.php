@@ -20,7 +20,6 @@ foreach ($rss->getElementsByTagName('item') as $node) {
 		);
 		array_push($feed, $itemRSS);
 	}
-
 	//Mostrar el arreglo con el contenido extraído
 //foreach ($feed as $itemRSS => $value) {
 	//	echo " " . $value['key'] . " " . $value['type'] . " " . $value['status'] . " " . $value['component'];
@@ -55,6 +54,8 @@ foreach ($rss->getElementsByTagName('item') as $node) {
 		}
 
 	}*/
+
+
 	foreach ($rss->getElementsByTagName('item') as $node0) {
 		$issuelinks = $node0->getElementsByTagName('issuelinks');
 		foreach ($issuelinks as $node1) {
@@ -65,6 +66,7 @@ foreach ($rss->getElementsByTagName('item') as $node) {
 					$outwardlinks = $node2->getElementsByTagName('outwardlinks');
 					foreach ($outwardlinks as $node3) {
 						$issuelink = $node3->getElementsByTagName('issuelink');
+
 						foreach ($issuelink as $node4) {
 							$itemRSS2 = array(
 								'issuekeys' => $node4->getElementsByTagName('issuekey')->item(0)->nodeValue,
@@ -78,10 +80,29 @@ foreach ($rss->getElementsByTagName('item') as $node) {
 		}
 	}
 
+	foreach ($rss->getElementsByTagName('item') as $nodeA) {
+		# code...
+		$attachments = $nodeA->getElementsByTagName('attachments');
+		foreach ($attachments as $nodeA1){
+			# code...
+			$attachment = $nodeA1->getElementsByTagName('attachment');
+			foreach ($attachment as $nameAtt) {
+				# code...
+				$itemRSS3 = array(
+					'attachment' => $nameAtt->getAttribute('name'),
+				);
+				array_push($feed, $itemRSS3);
+			}
+		}
+	}
 
+print_r($feed);
 
-//foreach ($feed as $itemRSS => $value) {
-	//echo  " " . $value['key'] . " " . $value['type'] . " " . $value['status'] . " " . $value['component'] . " Incidencias enlazadas " . " "  . $value['issuekeys'];
+//print_r($itemRSS2);
+
+/*
+foreach ($feed as $itemRSS2 => $value) {
+	echo  " " . $value['key'] . " " . $value['type'] . " " . $value['status'] . " " . $value['component'] . " Incidencias enlazadas " . " "  . $value['issuekeys'];
 	/*try {
 		$sentencia = $connection->prepare("INSERT INTO versistissuelinks(name_issuelink)
 		VALUES (:key)");
