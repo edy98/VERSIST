@@ -4,115 +4,93 @@ function almacenarDatos($ruta){
 
 	$rss = new DOMDocument();
 	$rss->load($ruta);
-	$xpath = new DOMXPath($rss);
-	$feed = array();
 
-	//Extrayendo ..
-foreach ($rss->getElementsByTagName('item') as $node) {
-		$itemRSS = array(
-			'key' => $node->getElementsByTagName('key')->item(0)->nodeValue,
-			'type' => $node->getElementsByTagName('type')->item(0)->nodeValue,
-			'status' => $node->getElementsByTagName('status')->item(0)->nodeValue,
-			'component' => $node->getElementsByTagName('component')->item(0)->nodeValue,
-			//'issuelinks' => $node->getElementsByTagName('issuelinks')->item(0)->nodeValue,
-			//'attachments' => $node->getElementsByTagName('attachments')->item(0)->nodeValue,
+//Intento de extraer los datos y almacenarlos en la bd directamente (sin arreglos)
+	foreach ($rss->getElementsByTagName('item') as $node) {
+			
+		$key= $node->getElementsByTagName('key')->item(0)->nodeValue;
+		$type= $node->getElementsByTagName('type')->item(0)->nodeValue;
+		$status= $node->getElementsByTagName('status')->item(0)->nodeValue;
+		$component= $node->getElementsByTagName('component')->item(0)->nodeValue;
 
-		);
-		array_push($feed, $itemRSS);
-	}
-	//Mostrar el arreglo con el contenido extraído
-//foreach ($feed as $itemRSS => $value) {
-	//	echo " " . $value['key'] . " " . $value['type'] . " " . $value['status'] . " " . $value['component'];
-		//Insertando datos a la bd
-		/*try {
-			$sentencia = $connection->prepare("INSERT INTO versist(clave, tipo_incidencia, estatus, componentes)
-			VALUES (:key, :type, :status, :component)");
-			$sentencia->bindParam(':key', $value['key']);
-			$sentencia->bindParam(':type', $value['type']);
-			$sentencia->bindParam(':status', $value['status']);
-			$sentencia->bindParam(':component', $value['component']);
-			//$sentencia->bindParam(':issuelinks', $value['issuelinks']);
-			$sentencia->execute();
-		} catch (PDOException $e) {
-			echo "Ocurrió un problema con la conexión " . $e->getMessage();
-		}*/
-	//}
+		//Se realiza la inserción de los datos
+		try {
+			//Se prepara las sentencia a ejecutar
+			$queryVersist = $connection->prepare("INSERT INTO versist(clave, tipo_incidencia, estatus, componentes)
+										VALUES (:key, :type, :status, :component)");
+											$queryVersist->bindParam(':key', $key);
+											$queryVersist->bindParam(':type', $type);
+											$queryVersist->bindParam(':status', $status);
+											$queryVersist->bindParam(':component', $component);
+										$queryVersist->execute();
 
-
-	//Esto es lo que pretendi implementar, pero aún no he probado si funciona
-	/*foreach ($rss->getElementsByTagName('item') as $node2) {
-		# code...
-		$issuelinks = $node2->getElementsByTagName('issuelinks')->item(0)->nodeValue;
-		foreach ($issuelinks->getElementById('10000') as $value) {
-					# code...
-				$itemRSS2 = array(
-					//'issuelink' => $value->getElementsByTagName('issuelink')->item(0)->nodeValue,
-					'issuelink' => $value->nodeValue,
-				);
-
-				array_push($feed, $itemRSS2);
+			} catch (PDOException $e) {
+										echo "<br>1 Ocurrió un problema con la conexión " . $e->getMessage();
 		}
 
-	}*/
+		//Se extrae la información de los issuekeys y se almacena en la bd
+			$issuelinks = $node->getElementsByTagName('issuelinks');
+			foreach ($issuelinks as $node1) {
+				$issuelinktype = $node1->getElementsByTagName('issuelinktype');
+				foreach ($issuelinktype as $node2) {
+					$id = $node2->getAttribute('id');
+					if ($id == '10000') {
+						$outwardlinks = $node2->getElementsByTagName('outwardlinks');
+						foreach ($outwardlinks as $node3) {
+							$issuelink = $node3->getElementsByTagName('issuelink');
 
+							foreach ($issuelink as $node4) {
+								$issuekeys= $node4->getElementsByTagName('issuekey')->item(0)->nodeValue;
+								//echo $key. " ".$type ." ".$status." ".$component." ".$issuekeys."<br> ";
 
-	foreach ($rss->getElementsByTagName('item') as $node0) {
-		$issuelinks = $node0->getElementsByTagName('issuelinks');
-		foreach ($issuelinks as $node1) {
-			$issuelinktype = $node1->getElementsByTagName('issuelinktype');
-			foreach ($issuelinktype as $node2) {
-				$id = $node2->getAttribute('id');
-				if ($id == '10000') {
-					$outwardlinks = $node2->getElementsByTagName('outwardlinks');
-					foreach ($outwardlinks as $node3) {
-						$issuelink = $node3->getElementsByTagName('issuelink');
+								try {
+										//Insertar en versistissuelinks
+										
+										$queryVersistIssue = $connection->prepare("INSERT INTO 
+											versistissuelinks(clave, name_issuelink)
+											VALUES (:key, :issuekeys)");
+											$queryVersistIssue->bindParam(':key', $key);
+											$queryVersistIssue->bindParam(':issuekeys', $issuekeys);
+										$queryVersistIssue->execute();
+										
+									} catch (PDOException $e) {
+										echo "<br> 2 Ocurrió un problema con la conexión " . $e->getMessage();
+									}
 
-						foreach ($issuelink as $node4) {
-							$itemRSS2 = array(
-								'issuekeys' => $node4->getElementsByTagName('issuekey')->item(0)->nodeValue,
-								//'issuelink' => $xpath->query('//outwardlinks/issuelink/issuekey', $node2)->item(0)->textContent,
-							);
-							array_push($feed, $itemRSS2);
+							}
 						}
 					}
 				}
 			}
-		}
-	}
 
-	foreach ($rss->getElementsByTagName('item') as $nodeA) {
-		# code...
-		$attachments = $nodeA->getElementsByTagName('attachments');
-		foreach ($attachments as $nodeA1){
-			# code...
-			$attachment = $nodeA1->getElementsByTagName('attachment');
-			foreach ($attachment as $nameAtt) {
+		//Se extrae la información de los attachments y se almacena en la bd
+			
 				# code...
-				$itemRSS3 = array(
-					'attachment' => $nameAtt->getAttribute('name'),
-				);
-				array_push($feed, $itemRSS3);
-			}
-		}
+				$attachments = $node->getElementsByTagName('attachments');
+				foreach ($attachments as $nodeA1){
+					# code...
+					$attachment = $nodeA1->getElementsByTagName('attachment');
+					foreach ($attachment as $nameAtt) {
+						# code...
+						$attachment = $nameAtt->getAttribute('name');
+						try {
+							//Insertar en versistisattachment			
+							$queryVersistAtt = $connection->prepare("INSERT INTO 
+											versistattachment(clave, namefile)
+											VALUES (:key, :attachments)");
+											$queryVersistAtt->bindParam(':key', $key);
+											$queryVersistAtt->bindParam(':attachments', $attachment);
+										$queryVersistAtt->execute();
+										
+							} catch (PDOException $e) {
+										echo "<br> 3 Ocurrió un problema con la conexión " . $e->getMessage();
+							}
+					}
+				}
+			
+		
 	}
-
-print_r($feed);
-
-//print_r($itemRSS2);
-
-/*
-foreach ($feed as $itemRSS2 => $value) {
-	echo  " " . $value['key'] . " " . $value['type'] . " " . $value['status'] . " " . $value['component'] . " Incidencias enlazadas " . " "  . $value['issuekeys'];
-	/*try {
-		$sentencia = $connection->prepare("INSERT INTO versistissuelinks(name_issuelink)
-		VALUES (:key)");
-		$sentencia->bindParam(':key', $val['issuekeys']);
-		//$sentencia->bindParam(':issuelinks', $value['issuelinks']);
-		$sentencia->execute();
-	} catch (PDOException $e) {
-		echo "Ocurrió un problema con la conexión " . $e->getMessage();
-	}*/
-//}
 
 }
- ?>
+
+?>
