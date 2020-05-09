@@ -5,7 +5,9 @@ header("Access-Control-Allow-Origin:*");
 include "conectar.php";
 
 try {
-$sentencia = $connection->prepare("SELECT * FROM versist");
+$sentencia = $connection->prepare("SELECT versist.*, versistissuelinks.name_issuelink, versistattachment.namefile FROM versist
+  LEFT JOIN versistissuelinks ON versistissuelinks.clave = versist.clave
+  LEFT JOIN versistattachment ON versistattachment.clave = versist.clave");
 $sentencia->execute();
 $result = $sentencia->fetchAll(PDO::FETCH_ASSOC);
 
