@@ -91,7 +91,7 @@
 			processData: false,
 			contentType: false,
 			success: function(response) {
-			//location.href="html/tabla-versist.html";
+			location.href="html/tabla-versist.html";
 		  },
 			error: function(jqXHR, textStatus, errorMessage) {
 				console.log(errorMessage); // Optional
