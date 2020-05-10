@@ -12,7 +12,7 @@ function btnMostrar(){
         + "<td>" + value.tipo_incidencia + "</td>"
         + "<td>" + value.estatus + "</td>"
         + "<td>" + value.componentes + "</td>"
-        + "<td>" + value.name_issuelink + "</td>"
+        + "<td>" + value.incidencias + "</td>"
         + "<td>" + value.namefile + "</td>";
 
       document.getElementById("date").appendChild(tr);

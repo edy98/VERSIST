@@ -161,6 +161,15 @@ table>thead {
   color: white;
 }
 
+,container2{
+  margin: 5%;
+  position: relative;
+  top: 0; left: 0; bottom: 0; right: 0;
+  width:50%;
+  height:40%;
+  text-align:center;
+}
+
 /*tbody > tr:nth-child(even) {
 	background: #CCC;
 }
