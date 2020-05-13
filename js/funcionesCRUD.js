@@ -11,9 +11,11 @@ function btnMostrar(){
         tr.innerHTML = "<td>" + value.clave + "</td>"
         + "<td>" + value.tipo_incidencia + "</td>"
         + "<td>" + value.estatus + "</td>"
-        + "<td>" + value.componentes + "</td>";
+        + "<td>" + value.componentes + "</td>"
+        + "<td>" + value.incidencias + "</td>"
+        + "<td>" + value.namefile + "</td>";
 
-      document.getElementById("datos").appendChild(tr);
+      document.getElementById("date").appendChild(tr);
       });
     },
     error: function(textStatus, errorMessage){

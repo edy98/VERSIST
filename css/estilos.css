@@ -149,13 +149,34 @@ ul {
   padding         : 0;
 }
 
-.table{
-  border: 2px solid #555;
+table {
+  width: 100%;
+  border: 1px solid black;
+  border-spacing: 0;
 }
 
-th{
-  border: 2px solid #555;
+table>thead {
+  background-color: #02254C;
+  font-weight: bold;
+  color: white;
 }
+
+,container2{
+  margin: 5%;
+  position: relative;
+  top: 0; left: 0; bottom: 0; right: 0;
+  width:50%;
+  height:40%;
+  text-align:center;
+}
+
+/*tbody > tr:nth-child(even) {
+	background: #CCC;
+}
+tbody > tr:nth-child(odd) {
+	background: #FFF;
+}*/
+
 
 .close {
     color: #fff !important;
