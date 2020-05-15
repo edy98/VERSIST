@@ -2,16 +2,16 @@
 	echo "<pre>";
 	/* Creamos una matriz general para almacenar los datos
 	que recuperemos del XML en un formato procesabledesde PHP
-	(para una base de datos, una renderización en pantalla o 
+	(para una base de datos, una renderización en pantalla o
 	lo que sea necesario). */
 	$matrizDeObras = array();
 
-	/* Creamos un objeto de la clase SimpleXMLElement para 
-	almacenar en el el contenido del archivo XML en una 
+	/* Creamos un objeto de la clase SimpleXMLElement para
+	almacenar en el el contenido del archivo XML en una
 	estructura de objeto procesable. */
 	$contenidoXML = new SimpleXMLElement("obras_3.xml", 0, true);
 
-	/* con el nombre de los nodos creamos unas variables 
+	/* con el nombre de los nodos creamos unas variables
 	(una por nodo) que podemos reorrer para trabajar sobre ellas. */
 	foreach ($contenidoXML->obra as $obra) {
 		$elementoObra = array(); // Elemento que contendrá datos de cada nodo.
@@ -53,7 +53,7 @@
         $elementoItem["type"] = trim((string)$type);
         $elementoItem["status"] = trim((string)$status);
         $elementoItem["component"] = trim((string)$component);
-    
+
         /*Recorreremos los subnodos del nodo issuelinks para obtener el valor del subnodo issuekey */
 
         $issuelinks = $item->issuelinks;
@@ -68,7 +68,7 @@
                             $elementoItem["issuekey"] = trim((string)$issuekey);
                         }
                  }
-            
+
              }
         }
 ---------------------
@@ -94,7 +94,7 @@ function obtenerDatos($ruta){
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Versisr Extraídos</title>
+    <title>Versist Extraídos</title>
     <link rel="stylesheet" href="../css/estilos.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
   </head>
