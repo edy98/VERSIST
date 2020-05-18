@@ -1,3 +1,4 @@
+document.getElementById('datosV').style.display = 'none';
 function btnMostrar(){
   $.ajax({
     url: '../php/mostrar.php',
@@ -28,6 +29,31 @@ function btnMostrar(){
 }
 
 function validarResultadoVersist(){
+  document.getElementById('datosV').style.display = 'block';
+  document.getElementById('datos').style.display = 'none';
+  $.ajax({
+    url: '../php/validarVResultado.php',
+    type: "GET",
+    dataType: "jsonp",
+    jsonp: "jsoncallback",
+    crossDomain: true,
+    success:function(data){
+      $.each(data, function(key, value){
+        var tr = document.createElement('tr');
+        tr.innerHTML = "<td>" + value.claveV + "</td>"
+        + "<td>" + value.accion + "</td>"
+        + "<td>" + value.estado + "</td>"
+        + "<td>" + value.tipoincidencia + "</td>"
+        + "<td>" + value.incidenciaenlazada + "</td>"
+        + "<td>" + value.attachment + "</td>";
+
+      document.getElementById("dateV").appendChild(tr);
+      });
+    },
+    error: function(textStatus, errorMessage){
+      console.log(textStatus);
+    }
+  });
   document.getElementById('validar').style.display = 'none';
   document.getElementById('generarReporte').style.display = 'block';
   document.getElementById('Vcancelar').style.display = 'block';
