@@ -150,10 +150,10 @@ ul {
 }
 
 table {
-  width: 100%;
   border: 1px solid black;
   border-spacing: 0;
 }
+
 
 table>thead {
   background-color: #02254C;
