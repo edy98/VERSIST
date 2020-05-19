@@ -1,5 +1,5 @@
 <?php
-header("Content-Type: text/json");
+//header("Content-Type: text/json");
 header("Access-Control-Allow-Origin:*");
 
 include "conectar.php";
