@@ -1,8 +1,9 @@
 <?php
-//header("Content-Type: text/json");
+header("Content-Type: text/json");
 header("Access-Control-Allow-Origin:*");
 
 include "conectar.php";
+
 
 try {
 $sentencia = $connection->prepare("SELECT versist.*, GROUP_CONCAT(versistissuelinks.name_issuelink) as incidencias, versistattachment.namefile FROM versist

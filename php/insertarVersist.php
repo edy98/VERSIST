@@ -91,6 +91,8 @@ function almacenarDatos($ruta){
 
 	}
 
+	include 'validarV.php';
+
 }
 
 ?>
