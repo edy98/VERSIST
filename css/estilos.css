@@ -149,10 +149,10 @@ ul {
   padding         : 0;
 }
 
-table {
+/*table {
   border: 1px solid black;
   border-spacing: 0;
-}
+}*/
 
 
 table>thead {
@@ -161,7 +161,7 @@ table>thead {
   color: white;
 }
 
-,container2{
+container2{
   margin: 5%;
   position: relative;
   top: 0; left: 0; bottom: 0; right: 0;

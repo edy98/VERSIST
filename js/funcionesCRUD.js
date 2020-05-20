@@ -32,7 +32,7 @@ function validarResultadoVersist(){
   document.getElementById('datosV').style.display = 'block';
   document.getElementById('datos').style.display = 'none';
   $.ajax({
-    url: '../php/validarVResultado.php',
+    url: '../php/mostrarVResultado.php',
     type: "GET",
     dataType: "jsonp",
     jsonp: "jsoncallback",
@@ -40,12 +40,12 @@ function validarResultadoVersist(){
     success:function(data){
       $.each(data, function(key, value){
         var tr = document.createElement('tr');
-        tr.innerHTML = "<td>" + value.claveV + "</td>"
+        tr.innerHTML = "<td>" + value.clave + "</td>"
         + "<td>" + value.accion + "</td>"
         + "<td>" + value.estado + "</td>"
-        + "<td>" + value.tipoincidencia + "</td>"
-        + "<td>" + value.incidenciaenlazada + "</td>"
-        + "<td>" + value.attachment + "</td>";
+        + "<td>" + value.tipo_incidencia + "</td>"
+        + "<td>" + value.incidencias_enlazadas + "</td>"
+        + "<td>" + value.archivos_adjuntos + "</td>";
 
       document.getElementById("dateV").appendChild(tr);
       });
