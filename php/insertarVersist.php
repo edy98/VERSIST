@@ -7,7 +7,7 @@ function almacenarDatos($ruta){
 
 //Intento de extraer los datos y almacenarlos en la bd directamente (sin arreglos)
 	foreach ($rss->getElementsByTagName('item') as $node) {
-			
+
 		$key= $node->getElementsByTagName('key')->item(0)->nodeValue;
 		$type= $node->getElementsByTagName('type')->item(0)->nodeValue;
 		$status= $node->getElementsByTagName('status')->item(0)->nodeValue;
@@ -45,14 +45,14 @@ function almacenarDatos($ruta){
 
 								try {
 										//Insertar en versistissuelinks
-										
-										$queryVersistIssue = $connection->prepare("INSERT INTO 
+
+										$queryVersistIssue = $connection->prepare("INSERT INTO
 											versistissuelinks(clave, name_issuelink)
 											VALUES (:key, :issuekeys)");
 											$queryVersistIssue->bindParam(':key', $key);
 											$queryVersistIssue->bindParam(':issuekeys', $issuekeys);
 										$queryVersistIssue->execute();
-										
+
 									} catch (PDOException $e) {
 										echo "<br> 2 Ocurrió un problema con la conexión " . $e->getMessage();
 									}
@@ -64,7 +64,7 @@ function almacenarDatos($ruta){
 			}
 
 		//Se extrae la información de los attachments y se almacena en la bd
-			
+
 				# code...
 				$attachments = $node->getElementsByTagName('attachments');
 				foreach ($attachments as $nodeA1){
@@ -74,22 +74,24 @@ function almacenarDatos($ruta){
 						# code...
 						$attachment = $nameAtt->getAttribute('name');
 						try {
-							//Insertar en versistisattachment			
-							$queryVersistAtt = $connection->prepare("INSERT INTO 
+							//Insertar en versistisattachment
+							$queryVersistAtt = $connection->prepare("INSERT INTO
 											versistattachment(clave, namefile)
 											VALUES (:key, :attachments)");
 											$queryVersistAtt->bindParam(':key', $key);
 											$queryVersistAtt->bindParam(':attachments', $attachment);
 										$queryVersistAtt->execute();
-										
+
 							} catch (PDOException $e) {
 										echo "<br> 3 Ocurrió un problema con la conexión " . $e->getMessage();
 							}
 					}
 				}
-			
-		
+
+
 	}
+
+	include 'validarV.php';
 
 }
 
