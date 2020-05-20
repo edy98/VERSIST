@@ -62,6 +62,45 @@ function validarResultadoVersist(){
 }
 
 function cancelarVersist(){
+  document.getElementById('datosV').style.display = 'block';
+  document.getElementById('datos').style.display = 'none';
+   var tabla = document.getElementById('dateV');
+  while(tabla.hasChildNodes()){
+    tabla.removeChild(tabla.firstChild);
+
+  }
+
+  $.ajax({
+    url: '../php/mostrarVCancelar.php',
+    type: "GET",
+    dataType: "jsonp",
+    jsonp: "jsoncallback",
+    crossDomain: true,
+    success:function(data){
+      if (data.message == "empty") {
+        var pa=document.createElement('p');
+        pa.innerHTML="No hay contenido disponible";
+        pa.style.textAlign="center";
+        pa.classList.add("top");
+        document.getElementById('dateV').appendChild(pa);
+        document.getElementById('generarListaC').disabled=true;
+      }else{
+        $.each(data, function(key, value){
+          var tr = document.createElement('tr');
+          tr.innerHTML = "<td>" + value.clave + "</td>"
+          + "<td>" + value.accion + "</td>"
+          + "<td>" + value.estado + "</td>"
+          + "<td>" + value.tipo_incidencia + "</td>"
+          + "<td>" + value.incidencias_enlazadas + "</td>"
+          + "<td>" + value.archivos_adjuntos + "</td>";
+
+        document.getElementById("dateV").appendChild(tr);
+        });
+      }
+    },
+    
+  });
+
   document.getElementById('versistCancelar').style.display = 'block';
   document.getElementById('versistValidar').style.display = 'none';
   document.getElementById('generarListaC').style.display = 'block';
@@ -70,6 +109,43 @@ function cancelarVersist(){
 }
 
 function validarVersist(){
+  document.getElementById('datosV').style.display = 'block';
+  document.getElementById('datos').style.display = 'none';
+  var tabla = document.getElementById('dateV');
+  while(tabla.hasChildNodes()){
+    tabla.removeChild(tabla.firstChild);
+  }
+
+  $.ajax({
+    url: '../php/mostrarVValidar.php',
+    type: "GET",
+    dataType: "jsonp",
+    jsonp: "jsoncallback",
+    crossDomain: true,
+    success:function(data){
+        if (data.message == "empty") {
+        var pa=document.createElement('p');
+        pa.innerHTML="No hay contenido disponible";
+        pa.style.textAlign="center";
+        pa.classList.add("top");
+        document.getElementById('dateV').appendChild(pa);
+        document.getElementById('generarListaV').disabled=true;
+      }else{
+        $.each(data, function(key, value){
+          var tr = document.createElement('tr');
+          tr.innerHTML = "<td>" + value.clave + "</td>"
+          + "<td>" + value.accion + "</td>"
+          + "<td>" + value.estado + "</td>"
+          + "<td>" + value.tipo_incidencia + "</td>"
+          + "<td>" + value.incidencias_enlazadas + "</td>"
+          + "<td>" + value.archivos_adjuntos + "</td>";
+
+        document.getElementById("dateV").appendChild(tr);
+        });
+      }
+    },
+    
+  });
   document.getElementById('versistValidar').style.display = 'block';
   document.getElementById('versistCancelar').style.display = 'none';
   document.getElementById('generarListaV').style.display = 'block';
