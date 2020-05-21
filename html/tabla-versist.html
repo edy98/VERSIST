@@ -73,7 +73,7 @@
         <input type="submit" class="float-left btn btn-lg btn-primary submit-button" style="display:none;" id="Vcancelar" value="VERSIST a Cancelar" onclick="cancelarVersist();"/>
         <input type="submit" class="float-left ml-5 btn btn-lg btn-primary submit-button" style="display:none;" id="Vvalidar" value="VERSIST  a Validar" onclick="validarVersist();"/>
         <input type="submit" class="float-right btn btn-lg btn-primary submit-button" style="display:none;" id="generarReporte" value="Generar Reporte" onclick=""/>
-        <input type="submit" class="float-right btn btn-lg btn-primary submit-button" style="display:none;" id="generarListaC" data-toggle="modal" data-target="#modalCancelar" value="Generar Lista a Cancelar" onclick=""/>
+        <input type="submit" class="float-right btn btn-lg btn-primary submit-button" style="display:none;" id="generarListaC" data-toggle="modal" data-target="#modalCancelar" value="Generar Lista a Cancelar" onclick="generarListaC();"/>
         <input type="submit" class="float-right btn btn-lg btn-primary submit-button" style="display:none;" id="generarListaV" data-toggle="modal" data-target="#modalValidar" value="Generar Lista a Validar" onclick=""/>
       </div>
 
@@ -88,10 +88,15 @@
               </button>
             </div>
             <div class="modal-body">
-              
+              <div id="copiarC">
+                <ol id="listaC">
+
+                </ol>
+              </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-dismiss="modal">Copiar al portapapeles</button>
+              <!--<button type="button" class="btn btn-primary" data-dismiss="modal">Copiar al portapapeles</button>-->
+              <button id="copyClip" data-clipboard-target="#copiarC" type="button" class="btn btn-primary">Copiar al portapapeles</button>
             </div>
           </div>
         </div>
@@ -109,9 +114,14 @@
               </button>
             </div>
             <div class="modal-body">
+              <div id="copiarV">
+                <ol id="listaV">
+
+                </ol>
+              </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-dismiss="modal">Copiar al portapapeles</button>
+              <button type="button" id="copyClip" data-clipboard-target="#copiarV" class="btn btn-primary" data-dismiss="modal">Copiar al portapapeles</button>
             </div>
           </div>
         </div>
@@ -119,6 +129,7 @@
 
       <script src="../js/jquery-3.4.1.min.js"></script>
       <script src="../js/bootstrap.min.js"></script>
+      <script src="../js/clipboard.min.js"></script>
       <script src="../js/funcionesCRUD.js"></script>
   </body>
 </html>
