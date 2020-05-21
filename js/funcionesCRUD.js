@@ -98,7 +98,7 @@ function cancelarVersist(){
         });
       }
     },
-    
+
   });
 
   document.getElementById('versistCancelar').style.display = 'block';
@@ -144,7 +144,7 @@ function validarVersist(){
         });
       }
     },
-    
+
   });
   document.getElementById('versistValidar').style.display = 'block';
   document.getElementById('versistCancelar').style.display = 'none';
@@ -152,3 +152,68 @@ function validarVersist(){
   document.getElementById('generarListaC').style.display = 'none';
   document.getElementById('generarReporte').style.display = 'none';
 }
+
+function generarListaC(){
+  var lista = document.getElementById('listaC');
+  while(lista.hasChildNodes()){
+    lista.removeChild(lista.firstChild);
+  }
+  $.ajax({
+    url: '../php/mostrarVCancelar.php',
+    type: "GET",
+    dataType: "jsonp",
+    jsonp: "jsoncallback",
+    crossDomain: true,
+    success:function(data){
+        $.each(data, function(key, value){
+          var li = document.createElement('li');
+          li.innerHTML =  value.clave + ",";
+
+        document.getElementById("listaC").appendChild(li);
+        });
+    },
+
+  });
+}
+
+function generarListaV(){
+  var lista = document.getElementById('listaV');
+  while(lista.hasChildNodes()){
+    lista.removeChild(lista.firstChild);
+  }
+  $.ajax({
+    url: '../php/mostrarVValidar.php',
+    type: "GET",
+    dataType: "jsonp",
+    jsonp: "jsoncallback",
+    crossDomain: true,
+    success:function(data){
+        $.each(data, function(key, value){
+          var li = document.createElement('li');
+
+          li.innerHTML =  value.clave + ",";
+
+        document.getElementById("listaV").appendChild(li);
+        });
+    },
+
+  });
+}
+
+/*function copiarPortaVc(){
+  var codeCopiar = document.getElementById('copiar');
+//  var text = document.querySelector('.data');
+  var range = document.createRange();
+  //range.selectNode(codeCopiar);
+  range.selectNodeContents(codeCopiar);
+  //Antes de añadir el intervalo de selección a la selección actual, elimino otros que pudieran existir (sino no funciona en Edge)
+  window.getSelection().removeAllRanges();
+  window.getSelection().addRange(range);
+  try {
+    // intentar copiar el contenido seleccionado
+    var resultado = document.execCommand('copy');
+    alert(resultado ? 'Información copiada' : 'No se pudo copiar la información');
+  } catch(err) {
+    console.log('ERROR al intentar copiar' + err);
+  }
+}*/
