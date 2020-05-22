@@ -182,7 +182,7 @@ function generarListaV(){
     lista.removeChild(lista.firstChild);
   }
   $.ajax({
-    url: '../php/mostrarVValidar.php',
+    url: '../php/mostrarListaValidar.php',
     type: "GET",
     dataType: "jsonp",
     jsonp: "jsoncallback",
@@ -191,7 +191,7 @@ function generarListaV(){
         $.each(data, function(key, value){
           var li = document.createElement('li');
 
-          li.innerHTML =  value.clave + ",";
+          li.innerHTML =  value.name_issuelink + ",";
 
         document.getElementById("listaV").appendChild(li);
         });
