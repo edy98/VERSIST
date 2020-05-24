@@ -91,11 +91,19 @@
 			processData: false,
 			contentType: false,
 			success: function(response) {
-			location.href="html/tabla-versist.html";
-		  },
-			error: function(jqXHR, textStatus, errorMessage) {
-				console.log(errorMessage); // Optional
+			console.log(response);
+
+			if (response.message != "error") {
+				console.log('Archivo admitido');
+				//location.href="html/tabla-versist.html";
+			}else{
+				
+				console.log('Archivo no admitido');
+				$("#modalT").modal('show');
 			}
+			
+		  },
+
 		 });
 
 }
