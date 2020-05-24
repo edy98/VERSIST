@@ -1,43 +1,50 @@
 <?php
+header("Content-Type: text/json");
+header("Access-Control-Allow-Origin:*");
+
 include 'insertarVersist.php';
 
 $nombre=$_FILES['xml']['name'];
 $guardado=$_FILES['xml']['tmp_name'];
-
+$datos = array();
+//1ra condición para ver si existe la carpeta archivos
 if(!file_exists('archivos')){
+
 	mkdir('archivos',0777,true);
 	if(file_exists('archivos')){
-		if(move_uploaded_file($guardado, 'archivos/'.$nombre)){
-			//echo "Archivo guardado con exito <a href='.$nombre.'>";
-			$ruta = 'archivos/'.$nombre;
-			//echo $nombre;
-
-		}else{
-			echo "Archivo no se pudo guardar";
-		}
+		
+		//comprobarArchivo($nombre,$guardado);
+		echo "Nueva carpeta";
 	}
 }else{
+	//comprobarArchivo($nombre,$guardado);
 	if (esVersist($nombre) == true) {
 		echo "Tu archivo es un versist";
 		$ruta = guardarArchivo($guardado, $nombre);
 		almacenarDatosV($ruta);
+
 	}else{
 		if (esRPN($nombre) == true) {
 			echo "Tu archivo es un RPN";
 			guardarArchivo($guardado, $nombre);
 		}else{
-			echo "No se pudo guardar el archivo";
+			//echo "El archivo no es ni versist ni RPN";
+			$datos['message']="error";
+
 		}
 	}
+
 }
 
 function guardarArchivo($guardado, $nombre){
+	
 	if(move_uploaded_file($guardado, 'archivos/'.$nombre)){
 		/*echo "Archivo guardado con exito <a href='.$nombre.'>";echo $ruta;*/
-		return $ruta = 'archivos/'.$nombre;
+		$ruta = 'archivos/'.$nombre;
+		return $ruta;
 
 	}else{
-		echo "Archivo no se pudo guardar";
+		$datos['message']="error";
 	}
 }
 
@@ -60,4 +67,29 @@ function esRPN($nombre){
 		return false;
 	}
 }
+
+function comprobarArchivo($nombre,$guardado){
+	
+
+	if (esVersist($nombre) == true) {
+		echo "Tu archivo es un versist";
+		$ruta = guardarArchivo($guardado, $nombre);
+		almacenarDatosV($ruta);
+
+	}else{
+		if (esRPN($nombre) == true) {
+			echo "Tu archivo es un RPN";
+			guardarArchivo($guardado, $nombre);
+		}else{
+			//echo "El archivo no es ni versist ni RPN";
+			$datos['message']="error";
+
+		}
+	}
+}
+
+
+$ajson = json_encode($datos);
+echo $_GET["jsoncallback"].'('.$ajson.');';
+
 ?>
