@@ -20,6 +20,14 @@
               <span class="sr-only">(current)</span>
             </a>
           </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Subir RPN
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="../index.html">RPN por VERSIST</a>
+            </div>
+          </li>
         </ul>
       </div>
       </nav>
@@ -74,7 +82,7 @@
         <input type="submit" class="float-left ml-5 btn btn-lg btn-primary submit-button" style="display:none;" id="Vvalidar" value="VERSIST  a Validar" onclick="validarVersist();"/>
         <input type="submit" class="float-right btn btn-lg btn-primary submit-button" style="display:none;" id="generarReporte" value="Generar Reporte" onclick=""/>
         <input type="submit" class="float-right btn btn-lg btn-primary submit-button" style="display:none;" id="generarListaC" data-toggle="modal" data-target="#modalCancelar" value="Generar Lista a Cancelar" onclick="generarListaC();"/>
-        <input type="submit" class="float-right btn btn-lg btn-primary submit-button" style="display:none;" id="generarListaV" data-toggle="modal" data-target="#modalValidar" value="Generar Lista a Validar" onclick=""/>
+        <input type="submit" class="float-right btn btn-lg btn-primary submit-button" style="display:none;" id="generarListaV" data-toggle="modal" data-target="#modalValidar" value="Generar Lista a Validar" onclick="generarListaV();"/>
       </div>
 
       <!--Modal -->
@@ -121,7 +129,7 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" id="copyClip" data-clipboard-target="#copiarV" class="btn btn-primary" data-dismiss="modal">Copiar al portapapeles</button>
+              <button  id="copyClip" type="button" data-clipboard-target="#copiarV" class="btn btn-primary">Copiar al portapapeles</button>
             </div>
           </div>
         </div>

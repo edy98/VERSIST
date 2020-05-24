@@ -1,5 +1,5 @@
 <?php
-function almacenarDatos($ruta){
+function almacenarDatosV($ruta){
 	include 'conectar.php';
 
 	$rss = new DOMDocument();
