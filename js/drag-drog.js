@@ -91,22 +91,30 @@
 			processData: false,
 			contentType: false,
 			success: function(response) {
-			console.log(response);
-
-			if (response.message != "error") {
+			console.log('message'+response.datos);
+			/*
+			if (response.message == "error") {
+				console.log('Archivo erroneo');
+				$("#modal_errorT").modal('show');
+				
+			}else{
 				console.log('Archivo admitido');
 				//location.href="html/tabla-versist.html";
-			}else{
 				
-				console.log('Archivo no admitido');
-				$("#modalT").modal('show');
-			}
+			}*/
 			
 		  },
+		  error: function(response){
+		  	if(response.message == "error"){
+		  		console.log('Archivo erroneo');
+		  	}
+		  }
+		  
+		});
 
-		 });
+	}
 
-}
+
 
 	// Check for the various File API support.
 	if (window.File && window.FileList && window.FileReader) {

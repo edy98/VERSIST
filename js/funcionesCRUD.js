@@ -72,7 +72,7 @@ function cancelarVersist(){
 
   $.ajax({
     url: '../php/mostrarVCancelar.php',
-    type: "GET",
+    type: "POST",
     dataType: "jsonp",
     jsonp: "jsoncallback",
     crossDomain: true,
