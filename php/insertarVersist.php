@@ -83,7 +83,7 @@ function insertarIssue($node){
 }
 
 function insertarAtt($node){
-	//include 'conectar.php';
+	include 'conectar.php';
 
 	$key= $node->getElementsByTagName('key')->item(0)->nodeValue;
 	//Se extrae la información de los attachments y se almacena en la bd
