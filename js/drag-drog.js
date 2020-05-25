@@ -87,26 +87,22 @@
 			},
 			url: 'php/sube.php',
 			type: "POST",
+			dataType: "json",
 			data: formData,
 			processData: false,
 			contentType: false,
-			success: function(response) {
-			console.log(response);
-
-			if (response.message != "error") {
-				console.log('Archivo admitido');
-				//location.href="html/tabla-versist.html";
+			success:function(response) {
+			if (response.message == "error") {
+				//console.log('Archivo erroneo');
+				$("#modal_errorT").modal('show');
 			}else{
-				
-				console.log('Archivo no admitido');
-				$("#modalT").modal('show');
+				//console.log('Archivo correcto');
+				location.href="html/tabla-versist.html";
 			}
-			
 		  },
+		});
+	}
 
-		 });
-
-}
 
 	// Check for the various File API support.
 	if (window.File && window.FileList && window.FileReader) {

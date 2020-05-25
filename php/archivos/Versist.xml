@@ -28,7 +28,7 @@ For example, to request only the issue key and summary append 'field=key&field=s
     <environment></environment>
     <key id="1028099">VERSIST-10937</key>
          <summary>Liberaci&#243;n a producci&#243;n BANCO</summary>
-            <type id="11700" iconUrl="http://vtsvapjira01:8080/secure/viewavatar?size=xsmall&amp;avatarId=13040&amp;avatarType=issuetype">Creación de Versión</type>
+            <type id="11700" iconUrl="http://vtsvapjira01:8080/secure/viewavatar?size=xsmall&amp;avatarId=13040&amp;avatarType=issuetype">VERCC</type>
                 <priority id="3" iconUrl="http://vtsvapjira01:8080/images/icons/priorities/major.svg">Mayor</priority>
                     <status id="10621" iconUrl="http://vtsvapjira01:8080/images/icons/statuses/generic.png" description="">Documentaci&#243;n Completa</status>
                     <statusCategory id="4" key="indeterminate" colorName="yellow"/>

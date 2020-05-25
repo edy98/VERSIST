@@ -12,24 +12,25 @@ if(!file_exists('archivos')){
 
 	mkdir('archivos',0777,true);
 	if(file_exists('archivos')){
-		
+
 		//comprobarArchivo($nombre,$guardado);
 		echo "Nueva carpeta";
 	}
 }else{
 	//comprobarArchivo($nombre,$guardado);
 	if (esVersist($nombre) == true) {
-		echo "Tu archivo es un versist";
+		//echo "Tu archivo es un versist";
 		$ruta = guardarArchivo($guardado, $nombre);
 		almacenarDatosV($ruta);
 
 	}else{
 		if (esRPN($nombre) == true) {
-			echo "Tu archivo es un RPN";
+			//echo "Tu archivo es un RPN";
 			guardarArchivo($guardado, $nombre);
 		}else{
 			//echo "El archivo no es ni versist ni RPN";
 			$datos['message']="error";
+
 
 		}
 	}
@@ -37,7 +38,7 @@ if(!file_exists('archivos')){
 }
 
 function guardarArchivo($guardado, $nombre){
-	
+
 	if(move_uploaded_file($guardado, 'archivos/'.$nombre)){
 		/*echo "Archivo guardado con exito <a href='.$nombre.'>";echo $ruta;*/
 		$ruta = 'archivos/'.$nombre;
@@ -68,28 +69,7 @@ function esRPN($nombre){
 	}
 }
 
-function comprobarArchivo($nombre,$guardado){
-	
+echo json_encode($datos);
 
-	if (esVersist($nombre) == true) {
-		echo "Tu archivo es un versist";
-		$ruta = guardarArchivo($guardado, $nombre);
-		almacenarDatosV($ruta);
-
-	}else{
-		if (esRPN($nombre) == true) {
-			echo "Tu archivo es un RPN";
-			guardarArchivo($guardado, $nombre);
-		}else{
-			//echo "El archivo no es ni versist ni RPN";
-			$datos['message']="error";
-
-		}
-	}
-}
-
-
-$ajson = json_encode($datos);
-echo $_GET["jsoncallback"].'('.$ajson.');';
 
 ?>
