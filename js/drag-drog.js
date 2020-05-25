@@ -87,33 +87,21 @@
 			},
 			url: 'php/sube.php',
 			type: "POST",
+			dataType: "json",
 			data: formData,
 			processData: false,
 			contentType: false,
-			success: function(response) {
-			console.log('message'+response.datos);
-			/*
+			success:function(response) {
 			if (response.message == "error") {
-				console.log('Archivo erroneo');
+				//console.log('Archivo erroneo');
 				$("#modal_errorT").modal('show');
-				
 			}else{
-				console.log('Archivo admitido');
-				//location.href="html/tabla-versist.html";
-				
-			}*/
-			
+				//console.log('Archivo correcto');
+				location.href="html/tabla-versist.html";
+			}
 		  },
-		  error: function(response){
-		  	if(response.message == "error"){
-		  		console.log('Archivo erroneo');
-		  	}
-		  }
-		  
 		});
-
 	}
-
 
 
 	// Check for the various File API support.
