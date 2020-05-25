@@ -96,7 +96,7 @@
 				//console.log('Archivo erroneo');
 				$("#modal_errorT").modal('show');
 			}else{
-				//console.log('Archivo correcto');
+				console.log('Archivo correcto');
 				location.href="html/tabla-versist.html";
 			}
 		  },
