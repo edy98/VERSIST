@@ -1,0 +1,230 @@
+
+
+<rss version="0.92">
+ <channel>
+  <title>INBURSA JIRA</title> 
+  <link>http://vtsvapjira01:8080/issues/?jql=project+%3D+VERSIST+AND+issuetype+%3D+VERCI+AND+KEY+IN+%28VERSIST-10799%2CVERSIST-10793%2CVERSIST-10796%29</link> 
+  <description>An XML representation of a search request</description> 
+  <language>es-es</language> 
+  <issue start="0" end="3" total="3" /> 
+ <build-info>
+  <version>7.11.0</version> 
+  <build-number>711000</build-number> 
+  <build-date>11-07-2018</build-date> 
+  </build-info>
+ <item>
+  <title>[VERSIST-10799] Liberación i-afore v1.0.60.26.1</title> 
+  <link>http://vtsvapjira01:8080/browse/VERSIST-10799</link> 
+  <project id="10190" key="VERSIST">Control de Versiones Sistemas</project> 
+  <description /> 
+  <environment /> 
+  <key id="1005870">VERSIST-10799</key> 
+  <summary>Liberación i-afore v1.0.60.26.1</summary> 
+  <type id="12417" iconUrl="http://vtsvapjira01:8080/secure/viewavatar?size=xsmall&avatarId=13040&avatarType=issuetype">VERCI</type> 
+  <priority id="1" iconUrl="http://vtsvapjira01:8080/images/icons/priorities/blocker.svg">Bloqueante</priority> 
+  <status id="10026" iconUrl="http://vtsvapjira01:8080/images/icons/statuses/generic.png" description="">Autorizada</status> 
+  <statusCategory id="4" key="indeterminate" colorName="yellow" /> 
+  <resolution id="-1">Sin resolver</resolution> 
+  <security id="10100">Asignado, Creador y Seguidores</security> 
+  <assignee username="rgranadosq">Reynaldo Granados Quiñonez</assignee> 
+  <reporter username="rgranadosq">Reynaldo Granados Quiñonez</reporter> 
+  <created>Wed, 29 Jan 2020 10:22:18 -0600</created> 
+  <updated>Tue, 3 Mar 2020 17:07:00 -0600</updated> 
+  <component>Aplicaciones Móviles</component> 
+  <due /> 
+  <watches>11</watches> 
+ <comments>
+  <comment id="2084019" author="rgranadosq" created="Wed, 29 Jan 2020 11:29:26 -0600"><p>Se adjunta autorización para documento <span class="nobr"><a href="http://vtsvapjira01:8080/secure/attachment/1797468/1797468_BI-RI_10799.docx" title="BI-RI_10799.docx attached to VERSIST-10799">BI-RI_10799.docx<sup><img class="rendericon" src="http://vtsvapjira01:8080/images/icons/link_attachment_7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span>: <span class="nobr"><a href="http://vtsvapjira01:8080/secure/attachment/1797467/1797467_ARR+-+Re+Autorizaci%C3%B3n+de+BI-RI.msg" title="ARR - Re Autorización de BI-RI.msg attached to VERSIST-10799">ARR - Re Autorización de BI-RI.msg<sup><img class="rendericon" src="http://vtsvapjira01:8080/images/icons/link_attachment_7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span></p></comment> 
+  <comment id="2092957" author="ID19078" created="Fri, 7 Feb 2020 07:19:02 -0600"><p>Liberado a producción</p></comment> 
+  </comments>
+ <issuelinks>
+ <issuelinktype id="10000">
+  <name>Ligar Incidencia</name> 
+ <outwardlinks description="esta Ligado a">
+ <issuelink>
+  <issuekey id="1006192">ADMINAPP-13336</issuekey> 
+  </issuelink>
+ <issuelink>
+  <issuekey id="1006195">SOPORTEPROD-335728</issuekey> 
+  </issuelink>
+ <issuelink>
+  <issuekey id="1006196">UNIXYRESPALDOS-30122</issuekey> 
+  </issuelink>
+ <issuelink>
+  <issuekey id="1004909">RPN-39037</issuekey> 
+  </issuelink>
+ <issuelink>
+  <issuekey id="1005865">RPN-39061</issuekey> 
+  </issuelink>
+  </outwardlinks>
+  </issuelinktype>
+  </issuelinks>
+ <attachments>
+  <attachment id="1797467" name="ARR - Re Autorización de BI-RI.msg" size="268288" author="rgranadosq" created="Wed, 29 Jan 2020 11:28:03 -0600" /> 
+  <attachment id="1797468" name="BI-RI_10799.docx" size="30081" author="rgranadosq" created="Wed, 29 Jan 2020 11:28:18 -0600" /> 
+  <attachment id="1806453" name="RE CC solicitud de versión de app de iAfore incidencias-RRP.msg" size="116736" author="mvillanuevab" created="Thu, 6 Feb 2020 17:07:55 -0600" /> 
+  <attachment id="1805663" name="RE CC solicitud de versión de app de iAfore incidencias-SRS.msg" size="115200" author="mvillanuevab" created="Thu, 6 Feb 2020 09:49:13 -0600" /> 
+  <attachment id="1806454" name="Re CC solicitud de versión de app de iAfore incidencias-RRH.msg" size="100352" author="mvillanuevab" created="Thu, 6 Feb 2020 17:07:55 -0600" /> 
+  </attachments>
+  <subtasks /> 
+ <customfields>
+ <customfield id="customfield_13109" key="com.pyxis.greenhopper.jira:gh-lexo-rank">
+  <customfieldname>Clasificación</customfieldname> 
+ <customfieldvalues>
+  <customfieldvalue>0|i4o98k:</customfieldvalue> 
+  </customfieldvalues>
+  </customfield>
+ <customfield id="customfield_13200" key="com.atlassian.jira.plugins.jira-development-integration-plugin:devsummary">
+  <customfieldname>Desarrollo</customfieldname> 
+  <customfieldvalues /> 
+  </customfield>
+ <customfield id="customfield_10120" key="com.burningcode.jira.issue.customfields.impl.jira-watcher-field:watcherfieldtype">
+  <customfieldname>Usuario Cc</customfieldname> 
+  <customfieldvalues /> 
+  </customfield>
+  </customfields>
+  </item>
+
+ <item>
+  <title>[VERSIST-10796] Liberación de Nueva Banca Empresarial</title> 
+  <link>http://vtsvapjira01:8080/browse/VERSIST-10796</link> 
+  <project id="10190" key="VERSIST">Control de Versiones Sistemas</project> 
+  <description /> 
+  <environment /> 
+  <key id="1005292">VERSIST-10796</key> 
+  <summary>Liberación de Nueva Banca Empresarial</summary> 
+  <type id="12417" iconUrl="http://vtsvapjira01:8080/secure/viewavatar?size=xsmall&avatarId=13040&avatarType=issuetype">VERCI</type> 
+  <priority id="2" iconUrl="http://vtsvapjira01:8080/images/icons/priorities/critical.svg">Critico</priority> 
+  <status id="10621" iconUrl="http://vtsvapjira01:8080/images/icons/statuses/generic.png" description="">Documentación Completa</status> 
+  <statusCategory id="4" key="indeterminate" colorName="yellow" /> 
+  <resolution id="-1">Sin resolver</resolution> 
+  <security id="10100">Asignado, Creador y Seguidores</security> 
+  <assignee username="srosass">Saul Rosas Santillan</assignee> 
+  <reporter username="openettreg">Oscar Mauricio Penettre Gonzalez</reporter> 
+  <created>Tue, 28 Jan 2020 15:46:43 -0600</created> 
+  <updated>Fri, 31 Jan 2020 23:35:07 -0600</updated> 
+  <component>Banca Empresarial</component> 
+  <due /> 
+  <watches>4</watches> 
+ <issuelinks>
+ <issuelinktype id="10000">
+  <name>Ligar Incidencia</name> 
+ <outwardlinks description="esta Ligado a">
+ <issuelink>
+  <issuekey id="1005258">RPN-39051</issuekey> 
+  </issuelink>
+ <issuelink>
+  <issuekey id="1007047">ARQCONF-57623</issuekey> 
+  </issuelink>
+ <issuelink>
+  <issuekey id="1007032">BDPROD-43204</issuekey> 
+  </issuelink>
+  </outwardlinks>
+ <inwardlinks description="esta Ligado desde">
+ <issuelink>
+  <issuekey id="1007476">ADMINAPP-13377</issuekey> 
+  </issuelink>
+  </inwardlinks>
+  </issuelinktype>
+  </issuelinks>
+ <attachments>
+  <attachment id="1801898" name="Andres Rojas RE CC - Banca Empresarial - Mejoras en monitor de operaciones.msg" size="123392" author="lriosc" created="Fri, 31 Jan 2020 19:03:22 -0600" /> 
+  <attachment id="1801880" name="RE Portal Casa de Bolsa - Marco Antonio Slim.msg" size="62976" author="openettreg" created="Fri, 31 Jan 2020 18:49:25 -0600" /> 
+  <attachment id="1801899" name="Raul Ramirez Re CC - Banca Empresarial - Mejoras en monitor de operaciones.msg" size="111616" author="lriosc" created="Fri, 31 Jan 2020 19:03:22 -0600" /> 
+  <attachment id="1802006" name="Raul Reynal Re CC - Banca Empresarial - Mejoras en monitor de operaciones.msg" size="88576" author="lriosc" created="Fri, 31 Jan 2020 23:35:07 -0600" /> 
+  <attachment id="1801900" name="Saul Rosas RE CC - Banca Empresarial - Mejoras en monitor de operaciones.msg" size="114176" author="lriosc" created="Fri, 31 Jan 2020 19:03:22 -0600" /> 
+  </attachments>
+  <subtasks /> 
+ <customfields>
+ <customfield id="customfield_13109" key="com.pyxis.greenhopper.jira:gh-lexo-rank">
+  <customfieldname>Clasificación</customfieldname> 
+ <customfieldvalues>
+  <customfieldvalue>0|i4o5us:</customfieldvalue> 
+  </customfieldvalues>
+  </customfield>
+ <customfield id="customfield_13200" key="com.atlassian.jira.plugins.jira-development-integration-plugin:devsummary">
+  <customfieldname>Desarrollo</customfieldname> 
+  <customfieldvalues /> 
+  </customfield>
+ <customfield id="customfield_10120" key="com.burningcode.jira.issue.customfields.impl.jira-watcher-field:watcherfieldtype">
+  <customfieldname>Usuario Cc</customfieldname> 
+  <customfieldvalues /> 
+  </customfield>
+  </customfields>
+  </item>
+
+ <item>
+  <title>[VERSIST-10793] Liberación de servicios por incidencia de asociación de Facepass (28-01-2020)</title> 
+  <link>http://vtsvapjira01:8080/browse/VERSIST-10793</link> 
+  <project id="10190" key="VERSIST">Control de Versiones Sistemas</project> 
+  <description><p>Se actualizaran los servicios y objetos de base de datos que intervienen en la asociación de facepass para corregir una incidencia en la asociación del dispositivo</p></description> 
+  <environment /> 
+  <key id="1004989">VERSIST-10793</key> 
+  <summary>Liberación de servicios por incidencia de asociación de Facepass (28-01-2020)</summary> 
+  <type id="12417" iconUrl="http://vtsvapjira01:8080/secure/viewavatar?size=xsmall&avatarId=13040&avatarType=issuetype">VERCI</type> 
+  <priority id="3" iconUrl="http://vtsvapjira01:8080/images/icons/priorities/major.svg">Mayor</priority> 
+  <status id="10621" iconUrl="http://vtsvapjira01:8080/images/icons/statuses/generic.png" description="">Documentación Completa</status> 
+  <statusCategory id="4" key="indeterminate" colorName="yellow" /> 
+  <resolution id="-1">Sin resolver</resolution> 
+  <security id="10100">Asignado, Creador y Seguidores</security> 
+  <assignee username="jlopezr">Joel Lopez Rodriguez</assignee> 
+  <reporter username="ebarradass">Eduardo Barradas Sanchez</reporter> 
+  <created>Tue, 28 Jan 2020 11:18:45 -0600</created> 
+  <updated>Wed, 29 Jan 2020 12:48:15 -0600</updated> 
+  <component>Aplicaciones Móviles</component> 
+  <due /> 
+  <watches>5</watches> 
+ <comments>
+  <comment id="2083374" author="jlopezr" created="Tue, 28 Jan 2020 17:52:18 -0600"><p>Validación de Bi-QA BI-QA_<a href="http://vtsvapjira01:8080/browse/VERSIST-10793" title="Liberación de servicios por incidencia de asociación de Facepass (28-01-2020)" class="issue-link" data-issue-key="VERSIST-10793">VERSIST-10793</a>.docx</p></comment> 
+  <comment id="2083379" author="jlopezr" created="Tue, 28 Jan 2020 17:52:50 -0600"><p>Validación de MD_ MD-<a href="http://vtsvapjira01:8080/browse/VERSIST-10793" title="Liberación de servicios por incidencia de asociación de Facepass (28-01-2020)" class="issue-link" data-issue-key="VERSIST-10793">VERSIST-10793</a>.docx</p></comment> 
+  <comment id="2084236" author="jgjimenezp" created="Wed, 29 Jan 2020 12:48:15 -0600"><p>liberado a produccion</p></comment> 
+  </comments>
+ <issuelinks>
+ <issuelinktype id="10000">
+  <name>Ligar Incidencia</name> 
+ <outwardlinks description="esta Ligado a">
+ <issuelink>
+  <issuekey id="1004717">BDPROD-43159</issuekey> 
+  </issuelink>
+ <issuelink>
+  <issuekey id="1004712">ADMINAPP-13298</issuekey> 
+  </issuelink>
+ <issuelink>
+  <issuekey id="1004713">SP-10233</issuekey> 
+  </issuelink>
+ <issuelink>
+  <issuekey id="1005723">RPN-39057</issuekey> 
+  </issuelink>
+  </outwardlinks>
+  </issuelinktype>
+  </issuelinks>
+ <attachments>
+  <attachment id="1797102" name="ARR - Re CC de solicitud de actualización de servicios de facephi por incidencia en enrolamiento y sustitución .msg" size="67072" author="ebarradass" created="Tue, 28 Jan 2020 22:56:02 -0600" /> 
+  <attachment id="1797099" name="REG - Re CC de solicitud de actualización de servicios de facephi por incidencia en enrolamiento y sustitución .msg" size="71168" author="ebarradass" created="Tue, 28 Jan 2020 22:56:02 -0600" /> 
+  <attachment id="1797103" name="RODC - PRUEBAS VERSIST-10793 A ESTE SISTEMA LE TOCA LIBERAR LOS DIAS VIERNES VERSIONES EXTEMPORANEAS .msg" size="153600" author="ebarradass" created="Tue, 28 Jan 2020 22:57:08 -0600" /> 
+  <attachment id="1797100" name="RRH - Re CC de solicitud de actualización de servicios de facephi por incidencia en enrolamiento y sustitución .msg" size="67072" author="ebarradass" created="Tue, 28 Jan 2020 22:56:02 -0600" /> 
+  <attachment id="1796408" name="RRH - Re Pruebas de correccion incidencia FacePass sustitución y registro .msg" size="169984" author="ebarradass" created="Tue, 28 Jan 2020 15:42:05 -0600" /> 
+  <attachment id="1797101" name="RRP - Re CC de solicitud de actualización de servicios de facephi por incidencia en enrolamiento y sustitución .msg" size="67072" author="ebarradass" created="Tue, 28 Jan 2020 22:56:02 -0600" /> 
+  <attachment id="1797130" name="VERSIST-10793.xlsx" size="10677" author="ebarradass" created="Tue, 28 Jan 2020 23:17:00 -0600" /> 
+  </attachments>
+  <subtasks /> 
+ <customfields>
+ <customfield id="customfield_13109" key="com.pyxis.greenhopper.jira:gh-lexo-rank">
+  <customfieldname>Clasificación</customfieldname> 
+ <customfieldvalues>
+  <customfieldvalue>0|i4o42s:</customfieldvalue> 
+  </customfieldvalues>
+  </customfield>
+ <customfield id="customfield_13200" key="com.atlassian.jira.plugins.jira-development-integration-plugin:devsummary">
+  <customfieldname>Desarrollo</customfieldname> 
+  <customfieldvalues /> 
+  </customfield>
+ <customfield id="customfield_10120" key="com.burningcode.jira.issue.customfields.impl.jira-watcher-field:watcherfieldtype">
+  <customfieldname>Usuario Cc</customfieldname> 
+  <customfieldvalues /> 
+  </customfield>
+  </customfields>
+  </item>
+  </channel>
+  </rss>
+
