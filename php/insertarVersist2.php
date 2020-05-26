@@ -21,7 +21,6 @@ function almacenarDatosV($ruta){
 }
 
 function insertarDatos($node){
-	include 'conectar.php';
 		$key= $node->getElementsByTagName('key')->item(0)->nodeValue;
 		$type= $node->getElementsByTagName('type')->item(0)->nodeValue;
 		$status= $node->getElementsByTagName('status')->item(0)->nodeValue;
@@ -36,7 +35,7 @@ function insertarDatos($node){
 											$queryVersist->bindParam(':type', $type);
 											$queryVersist->bindParam(':status', $status);
 											$queryVersist->bindParam(':component', $component);
-										$queryVersist->execute();
+										//$queryVersist->execute();
 
 			} catch (PDOException $e) {
 										echo "<br>1 Ocurrió un problema con la conexión " . $e->getMessage();
@@ -44,8 +43,6 @@ function insertarDatos($node){
 }
 
 function insertarIssue($node){
-	include 'conectar.php';
-	$key= $node->getElementsByTagName('key')->item(0)->nodeValue;
 	//Se extrae la información de los issuekeys y se almacena en la bd
 			$issuelinks = $node->getElementsByTagName('issuelinks');
 			foreach ($issuelinks as $node1) {
@@ -69,7 +66,7 @@ function insertarIssue($node){
 											VALUES (:key, :issuekeys)");
 											$queryVersistIssue->bindParam(':key', $key);
 											$queryVersistIssue->bindParam(':issuekeys', $issuekeys);
-										$queryVersistIssue->execute();
+										//$queryVersistIssue->execute();
 
 									} catch (PDOException $e) {
 										echo "<br> 2 Ocurrió un problema con la conexión " . $e->getMessage();
@@ -83,9 +80,6 @@ function insertarIssue($node){
 }
 
 function insertarAtt($node){
-	include 'conectar.php';
-
-	$key= $node->getElementsByTagName('key')->item(0)->nodeValue;
 	//Se extrae la información de los attachments y se almacena en la bd
 
 				# code...
@@ -96,7 +90,6 @@ function insertarAtt($node){
 					foreach ($attachment as $nameAtt) {
 						# code...
 						$attachment = $nameAtt->getAttribute('name');
-						
 						try {
 							//Insertar en versistisattachment
 							$queryVersistAtt = $connection->prepare("INSERT INTO
@@ -104,35 +97,16 @@ function insertarAtt($node){
 											VALUES (:key, :attachments)");
 											$queryVersistAtt->bindParam(':key', $key);
 											$queryVersistAtt->bindParam(':attachments', $attachment);
-										$queryVersistAtt->execute();
+										//$queryVersistAtt->execute();
 
 							} catch (PDOException $e) {
 										echo "<br> 3 Ocurrió un problema con la conexión " . $e->getMessage();
 							}
-							/*$tabla = 'versistattachment';
-							$campo2 = 'namefile';
-							insertarIssAtt($tabla, $key, $campo2, $attachment);*/
 					}
 				}
 
 }
 
-function insertarIssAtt($tabla, $key, $campo2, $value){
-		include 'conectar.php';
-	try {
-							//Insertar en versistisattachment
-							$query = $connection->prepare("INSERT INTO
-											$tabla (clave, :campo2)
-											VALUES (:key, :value)");
-											//$query->bindParam(':tabla', $tabla);
-											$query->bindParam(':campo2', $campo2);
-											$query->bindParam(':key', $key);
-											$query->bindParam(':value', $value);
-										$queryVersistAtt->execute();
 
-		} catch (PDOException $e) {
-										echo "<br> 3 Ocurrió un problema con la conexión " . $e->getMessage();
-		}
-}
 
 ?>
