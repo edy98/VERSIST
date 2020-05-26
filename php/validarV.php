@@ -2,7 +2,7 @@
 
 include 'conectar.php';
 
-//obtener datos
+//Se prepara y ejecuta la sentencia para mostrar 
 
 try {
 $sentencia = $connection->prepare("SELECT versist.*, GROUP_CONCAT(versistissuelinks.name_issuelink) as incidencias, versistattachment.namefile FROM versist
@@ -10,21 +10,24 @@ $sentencia = $connection->prepare("SELECT versist.*, GROUP_CONCAT(versistissueli
   LEFT JOIN versistattachment ON versistattachment.clave = versist.clave
   GROUP BY versist.clave");
 $sentencia->execute();
+//Se obtiene el resultado de la consulta y se almacena en variable para recorrerse por el foreach
 $result = $sentencia->fetchAll(PDO::FETCH_ASSOC);
 
 } catch (PDOException $e) {
   echo "Ocurrió un problema al mostrar " . $e->getMessage();
 }
 
-foreach ($result as $row) {
+foreach ($result as $row) { //se recorren los registros através del foreach
+  //se ejecutan las validaciones y se obtiene los resultados
   $id = obtenerID($row);
   $estado = validarEstado($row);
   $tipo = validarTipo($row);
   $incidenciaEn = validarIncidencias($row);
   $archivos = validarArchivos($row);
-
+  //El resultado final se incluye en el campo acción.
   $accion = validarSuma($estado, $tipo, $incidenciaEn, $archivos);
 
+  //Se insertan los datos en la tabla correspondiente.
     try {
        $queryVersist = $connection->prepare("INSERT INTO resultado_versist(clave, accion, estado, tipo_incidencia,incidencias_enlazadas,archivos_adjuntos)
                      VALUES (:clave, :accion, :estado, :tipo_incidencia, :incidencias_enlazadas, :archivos_adjuntos )");
@@ -41,10 +44,12 @@ foreach ($result as $row) {
      }
 }
 
+//Obtiene el resultado final que proporciona la acción a ejecutar.
 function validarSuma($v1, $v2, $v3, $v4){
   $resultado = $v1 + $v2 + $v3 + $v4;
 
   $validar = '';
+  //Condiciones para obtener el valor de la acción
   if ($resultado == 4) {
     $validar = 'Validar';
     return $validar;
@@ -54,11 +59,14 @@ function validarSuma($v1, $v2, $v3, $v4){
   }
 }
 
+//se obtiene la clave de los registros obtenidos en la consulta
 function obtenerID($row){
+
   $id =  $row['clave'];
   return $id;
 }
 
+//Se realiza la validación del campo estado
 function validarEstado($row){
   if ('Documentación Completa' == $row['estatus']) {
     //echo $row['clave'] . " " .  $row['estatus'] . " Esta bien ";
@@ -71,6 +79,7 @@ function validarEstado($row){
   }
 }
 
+//Se realiza la validación del campo type
 function validarTipo($row){
   if ($row['tipo_incidencia'] == 'Creación de Versión') {
     //echo $row['tipo_incidencia'] . " Esta bien ";
@@ -83,11 +92,14 @@ function validarTipo($row){
   }
 }
 
+//Se realiza la validación del campo incidencias
 function validarIncidencias($row){
+  //La validación incluye que debe contener un RPN
   if (preg_match("/RPN/" , $row['incidencias'])) {
-    //echo " Tiene RPN ";
+    
     $valorIncidencia = 1;
-    //return $valorIncidencia;
+    
+    //Y también contener algún objeto de arquitectura
     if (preg_match("/SP|SOPORTEPROD|ARQCONF|UNIXYRESPALDOS|BDPROD/" , $row['incidencias'])) {
       //echo "Si tiene OA ";
       //$valorIncidencia = 1;
@@ -104,6 +116,7 @@ function validarIncidencias($row){
   }
 }
 
+//Se valida el campo de archivos adjuntos que debe incluir el formato de liberación
 function validarArchivos($row){
   if (preg_match("/FormatoLiberacion|Matriz|^VERSIST/" , $row['namefile'])) {
     //echo " Si tiene AA ";

@@ -92,6 +92,7 @@
 			processData: false,
 			contentType: false,
 			success:function(response) {
+				//Condición para saber si el archivo es válido o no
 			if (response.message == "error") {
 				//console.log('Archivo erroneo');
 				$("#modal_errorT").modal('show');
