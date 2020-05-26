@@ -12,14 +12,101 @@ function almacenarDatosV($ruta){
 		insertarIssue($node);
 		insertarAtt($node);
 
-		
-
 	}
 
 	include 'validarV.php';
 
 }
 
+function id($node){
+	$key= $node->getElementsByTagName('key')->item(0)->nodeValue;
+	return $key;
+}
+
+function insertarDatos($node){
+	include 'conectar.php';
+	//$key= $node->getElementsByTagName('key')->item(0)->nodeValue;
+	$keys = id($node);
+	$type= $node->getElementsByTagName('type')->item(0)->nodeValue;
+	$status= $node->getElementsByTagName('status')->item(0)->nodeValue;
+	$component= $node->getElementsByTagName('component')->item(0)->nodeValue;
+
+	//echo " " . $key . " " . $type . " " . $status . " " . $component;
+
+	try {
+		//Se prepara las sentencia a ejecutar
+		$queryVersist = $connection->prepare("INSERT INTO versist(clave, tipo_incidencia, estatus, componentes)
+									VALUES (:key, :type, :status, :component)");
+										$queryVersist->bindParam(':key', $keys);
+										$queryVersist->bindParam(':type', $type);
+										$queryVersist->bindParam(':status', $status);
+										$queryVersist->bindParam(':component', $component);
+									$queryVersist->execute();
+
+		} catch (PDOException $e) {
+									echo "<br>1 Ocurrió un problema con la conexión " . $e->getMessage();
+	}
+}
+
+function insertarIssue($node){
+	$issuelinks = $node->getElementsByTagName('issuelinks');
+	foreach ($issuelinks as $node1) {
+			$issuelinktype = $node1->getElementsByTagName('issuelinktype');
+			foreach ($issuelinktype as $node2) {
+				$id = $node2->getAttribute('id');
+				if ($id == '10000') {
+					$outwardlinks = $node2->getElementsByTagName('outwardlinks');
+					foreach ($outwardlinks as $node3) {
+						$issuelink = $node3->getElementsByTagName('issuelink');
+
+						foreach ($issuelink as $node4) {
+							$issuekeys= $node4->getElementsByTagName('issuekey')->item(0)->nodeValue;
+							//echo " " . $issuekeys;
+							$keys = id($node);
+							$valorCampo = $issuekeys;
+							$nombreTabla = 'versistissuelinks';
+							$nombreCampo = 'name_issuelink';
+							insertIssueAttBd($keys, $valorCampo, $nombreTabla, $nombreCampo);
+						}
+					}
+				}
+			}
+		}
+	}
+
+function insertarAtt($node){
+	$attachments = $node->getElementsByTagName('attachments');
+	foreach ($attachments as $nodeA1){
+		$attachment = $nodeA1->getElementsByTagName('attachment');
+		foreach ($attachment as $nameAtt) {
+			$attachment = $nameAtt->getAttribute('name');
+			//echo " " . $attachment;
+			$keys = id($node);
+			$valorCampo = $attachment;
+			$nombreTabla = 'versistattachment';
+			$nombreCampo = 'namefile';
+			insertIssueAttBd($keys, $valorCampo, $nombreTabla, $nombreCampo);
+		}
+	}
+}
+
+function insertIssueAttBd($keys, $valorCampo, $nombreTabla, $nombreCampo){
+	include 'conectar.php';
+	try {
+		//Se prepara las sentencia a ejecutar
+		$queryVersist = $connection->prepare("INSERT INTO $nombreTabla(clave, $nombreCampo)
+									VALUES (:key, :valorCampo)");
+										$queryVersist->bindParam(':key', $keys);
+										$queryVersist->bindParam(':valorCampo', $valorCampo);
+										$queryVersist->execute();
+
+		} catch (PDOException $e) {
+									echo "<br>1 Ocurrió un problema con la conexión " . $e->getMessage();
+	}
+
+}
+
+/*
 function insertarDatos($node){
 	include 'conectar.php';
 		$key= $node->getElementsByTagName('key')->item(0)->nodeValue;
@@ -96,7 +183,7 @@ function insertarAtt($node){
 					foreach ($attachment as $nameAtt) {
 						# code...
 						$attachment = $nameAtt->getAttribute('name');
-						
+
 						try {
 							//Insertar en versistisattachment
 							$queryVersistAtt = $connection->prepare("INSERT INTO
@@ -111,7 +198,7 @@ function insertarAtt($node){
 							}
 							/*$tabla = 'versistattachment';
 							$campo2 = 'namefile';
-							insertarIssAtt($tabla, $key, $campo2, $attachment);*/
+							insertarIssAtt($tabla, $key, $campo2, $attachment);
 					}
 				}
 
@@ -133,6 +220,6 @@ function insertarIssAtt($tabla, $key, $campo2, $value){
 		} catch (PDOException $e) {
 										echo "<br> 3 Ocurrió un problema con la conexión " . $e->getMessage();
 		}
-}
+}*/
 
 ?>
