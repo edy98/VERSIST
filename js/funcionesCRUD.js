@@ -1,4 +1,6 @@
 document.getElementById('datosV').style.display = 'none';
+
+//Función para mostrar los datos obtenidos del archivo mostrar.php
 function btnMostrar(){
   $.ajax({
     url: '../php/mostrar.php',
@@ -9,6 +11,7 @@ function btnMostrar(){
     success:function(data){
       $.each(data, function(key, value){
         var tr = document.createElement('tr');
+        //Se dan los valores a las etiquetas
         tr.innerHTML = "<td>" + value.clave + "</td>"
         + "<td>" + value.tipo_incidencia + "</td>"
         + "<td>" + value.estatus + "</td>"
@@ -16,6 +19,7 @@ function btnMostrar(){
         + "<td>" + value.incidencias + "</td>"
         + "<td>" + value.namefile + "</td>";
 
+        //Se anexan los nodos hijos al nodo padre de la tabla
       document.getElementById("date").appendChild(tr);
       });
     },
@@ -28,6 +32,7 @@ function btnMostrar(){
   document.getElementById('Generar').disabled = true;
 }
 
+//Se muestran los datos de acuerdo a su validación
 function validarResultadoVersist(){
   document.getElementById('datosV').style.display = 'block';
   document.getElementById('datos').style.display = 'none';
@@ -61,6 +66,7 @@ function validarResultadoVersist(){
   document.getElementById('resultado').style.display = 'none';
 }
 
+//Se muestran los datos de los versist de acuerdo a la acción
 function cancelarVersist(){
   document.getElementById('datosV').style.display = 'block';
   document.getElementById('datos').style.display = 'none';
@@ -153,6 +159,7 @@ function validarVersist(){
   document.getElementById('generarReporte').style.display = 'none';
 }
 
+//Se crean las listas de acuerdo a la información proporcionada por el archivo de la url
 function generarListaC(){
   var lista = document.getElementById('listaC');
   while(lista.hasChildNodes()){
@@ -199,21 +206,3 @@ function generarListaV(){
 
   });
 }
-
-/*function copiarPortaVc(){
-  var codeCopiar = document.getElementById('copiar');
-//  var text = document.querySelector('.data');
-  var range = document.createRange();
-  //range.selectNode(codeCopiar);
-  range.selectNodeContents(codeCopiar);
-  //Antes de añadir el intervalo de selección a la selección actual, elimino otros que pudieran existir (sino no funciona en Edge)
-  window.getSelection().removeAllRanges();
-  window.getSelection().addRange(range);
-  try {
-    // intentar copiar el contenido seleccionado
-    var resultado = document.execCommand('copy');
-    alert(resultado ? 'Información copiada' : 'No se pudo copiar la información');
-  } catch(err) {
-    console.log('ERROR al intentar copiar' + err);
-  }
-}*/

@@ -1,4 +1,7 @@
 <?php
+
+//Archivo para obtener la lista de cancelar
+
 header("Content-Type: text/json");
 header("Access-Control-Allow-Origin:*");
 
