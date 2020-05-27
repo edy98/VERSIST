@@ -3,7 +3,6 @@ header("Content-Type: text/json");
 header("Access-Control-Allow-Origin:*");
 
 include 'insertarVersist.php';
-include 'insertarRPN.php';
 
 $nombre=$_FILES['xml']['name'];
 $guardado=$_FILES['xml']['tmp_name'];
@@ -27,8 +26,7 @@ if(!file_exists('archivos')){
 	}else{
 		if (esRPN($nombre) == true) {
 			//echo "Tu archivo es un RPN";
-			$ruta2=guardarArchivo($guardado, $nombre);
-			almacenarDatosR($ruta2);
+			guardarArchivo($guardado, $nombre);
 		}else{
 			//echo "El archivo no es ni versist ni RPN";
 			$datos['message']="error";
