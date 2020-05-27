@@ -155,6 +155,76 @@ function obtenerDatos($ruta){
         ?>
       </div>
 
+
+
+			<!DOCTYPE html>
+			<html lang="en" dir="ltr">
+			  <head>
+			    <meta charset="utf-8">
+			    <title>RPN Extraídos</title>
+			    <link rel="stylesheet" href="../css/estilos.css">
+			    <link rel="stylesheet" href="../css/bootstrap.min.css">
+			  </head>
+			  <body>
+			    <nav class="navbar navbar-expand-lg navbar-dark" >
+			      <!--
+			      <a class="navbar-brand bienvenido col-5" href="#">Bienvenido</a>-->
+			      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="#navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+			        <span class="navbar-toggler-icon"></span>
+			      </button>
+			      <div class="collapse navbar-collapse" id="navbarToggle">
+			        <ul class="navbar-nav mr-auto">
+			          <li class="nav-item active">
+			            <a class="nav-link" href="#">Inicio
+			              <span class="sr-only">(current)</span>
+			            </a>
+			          </li>
+			        </ul>
+			      </div>
+			      </nav>
+
+			      <div class="container">
+			        <p class="archivo-correcto">Resultado de la extracción</p>
+			      </div>
+
+			      <div class="container">
+			        <?php
+			             //bucle para recorrer los elementos del array
+			            for ($i = 0; $i<count($listaItems); $i++){
+			        ?>
+			        <table class="table">
+			          <tr>
+			            <td>VERSIST</td>
+			            <td>RPN</td>
+			            <td>Tipo de Incidencia</td>
+			            <td>Estado</td>
+			            <td>Incidencias Enlazadas</td>
+			            <td>Archivos adjuntos</td>
+			          </tr>
+			          <tr>
+			            <td> <?php echo $listaIt[$i]["key"]; ?> </td>
+			            <td><?php echo $listaIt[$i]["type"]; ?></td>
+			            <td><?php echo $listaIt[$i]["status"]; ?></td>
+			            <td>
+			              <?php echo $items['channel']['item'][$i]['issuelinks']['issulinktype']['inwardlinks']['issuelink'][$i]['issuekey'] . '/>'; ?>
+			            </td>
+			            <td>
+			              <?php echo $items['channel']['item'][$i]['attachments']['attachment'][$i]['name'] . '/>'; ?>
+			            </td>
+			          </tr>
+			        </table>
+			        <?php
+			      }
+			        ?>
+			      </div>
+
+
+
+
+
+
+
+
       <script src="../js/jquery-3.4.1.min.js"></script>
       <script src="../js/bootstrap.min.js"></script>
   </body>
