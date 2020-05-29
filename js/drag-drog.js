@@ -93,16 +93,24 @@
 			contentType: false,
 			success:function(response) {
 				//Condición para saber si el archivo es válido o no
-			if (response.message == "error") {
-				//console.log('Archivo erroneo');
-				$("#modal_errorT").modal('show');
-			}else{
+			if (response.message == "versist"){
+    	//console.log('Archivo erroneo');
+			location.href="html/tabla-versist.html";
+
+		}else if (response.message == "rpn") {
+        //console.log('Archivo correcto');
+			location.href="html/tabla-rpn.html";
+
+			}else  (response.message == "error"){
 				//console.log('Archivo correcto');
-				location.href="html/tabla-versist.html";
+		     $("#modal_errorT").modal('show');
+
 			}
 		  },
 		});
 	}
+}
+
 
 
 	// Check for the various File API support.

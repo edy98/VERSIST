@@ -206,3 +206,34 @@ function generarListaV(){
 
   });
 }
+
+function btnMostrarR(){
+  $.ajax({
+    url: '../php/mostrarRpn.php',
+    type: "GET",
+    dataType: "jsonp",
+    jsonp: "jsoncallback",
+    crossDomain: true,
+    success:function(data){
+      $.each(data, function(key, value){
+        var tr = document.createElement('tr');
+        //Se dan los valores a las etiquetas
+        tr.innerHTML = "<td>" + value.versist_clave + "</td>"
+        + "<td>" + value.clave_rpn + "</td>"
+        + "<td>" + value.tipo_incidencia + "</td>"
+        + "<td>" + value.estatus + "</td>"
+        + "<td>" + value.incidencias + "</td>"
+        + "<td>" + value.namefile + "</td>";
+
+        //Se anexan los nodos hijos al nodo padre de la tabla
+      document.getElementById("dateR").appendChild(tr);
+      });
+    },
+    error: function(textStatus, errorMessage){
+      console.log(textStatus);
+    }
+  });
+
+  document.getElementById('validarR').style.display = 'block';
+  document.getElementById('GenerarR').disabled = true;
+}
