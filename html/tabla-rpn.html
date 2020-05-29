@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>RPN Extraídos</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark" >
+      <!--
+      <a class="navbar-brand bienvenido col-5" href="#">Bienvenido</a>-->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="#navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggle">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../index.html">Inicio
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      </nav>
+
+      <div class="container" id="resultadoR">
+        <p class="top">Tu archivo fue subido correctamente, da click en generar, para mostrarte el resultado de la extración</p>
+
+        <input type="submit" class="btn btn-lg btn-primary submit-button" id="GenerarR" value="Generar" onclick="btnMostrarR();"/>
+      </div>
+
+      <div class="container" style="display:none;" id="CancelarRpn">
+        <p class="top">VERSIST por RPN cancelar que no cumplieron con los criterios correspondientes</p>
+      </div>
+
+      <div class="container" style="display:none;" id="ValidarRpn">
+        <p class="top">VERSIST por RPN a validar que cumplieron con los criterios correspondientes</p>
+      </div>
+
+      <div class="container">
+        <table class="table" id="datosR">
+          <thead>
+            <tr>
+              <th>VERSIST</th>
+              <th>RPN</th>
+              <th>Tipo de Incidencia</th>
+              <th>Estado</th>
+              <th>Incidencias Enlazadas</th>
+              <th>Archivos Adjuntos</th>
+            </tr>
+          </thead>
+            <tbody id="dateR">
+
+            </tbody>
+        </table>
+      <!--  <table class="table" id="datosR">
+          <thead>
+            <tr>
+              <th>VERSIST</th>
+              <th>RPN</th>
+              <th>Acción a Tomar</th>
+              <th>Estado</th>
+              <th>Archivos Adjuntos</th>
+              <th>BI-RPN</th>
+              <th>MP</th>
+              <th>MD</th>
+              <th>BI-DA</th>
+              <th>MU</th>
+              <th>BI-QA</th>
+            </tr>
+          </thead>
+            <tbody id="dateR">
+            </tbody>
+        </table> -->
+        <input type="submit" class="float-right btn btn-lg btn-primary submit-button" style="display:none;" id="validarR" value="Validar Resultado" onclick="validarResultadoRPN();"/>
+        <input type="submit" class="float-left btn btn-lg btn-primary submit-button" style="display:none;" id="cancelarR" value="VERSIST por RPN a Cancelar" onclick="cancelarRPN();"/>
+        <input type="submit" class="float-left ml-5 btn btn-lg btn-primary submit-button" style="display:none;" id="Rvalidar" value="VERSIST por RPN   a Validar" onclick="validarRPN();"/>
+        <input type="submit" class="float-right btn btn-lg btn-primary submit-button" style="display:none;" id="generarReporteR" value="Generar Reporte" onclick=""/>
+        <input type="submit" class="float-right btn btn-lg btn-primary submit-button" style="display:none;" id="generarListaCan" data-toggle="modal" data-target="#modalCancelarR" value="Generar Lista a Cancelar" onclick="generarListaCancelar();"/>
+        <input type="submit" class="float-right btn btn-lg btn-primary submit-button" style="display:none;" id="generarListaCon" data-toggle="modal" data-target="#modalCongelar" value="Generar Lista a Congelar" onclick="generarListaCongelar();"/>
+      </div>
+
+      <!--Modal -->
+      <div class="modal fade" id="modalCancelarR" tabindex="-1" role="dialog" aria-labelledby="modalCancelarR" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header tabs">
+              <h5 class="modal-title text-white" id="modalCancelarR">VERSIST a Cancelar</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div id="copiarCan">
+                <ol id="listaCan">
+
+                </ol>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <!--<button type="button" class="btn btn-primary" data-dismiss="modal">Copiar al portapapeles</button>-->
+              <button id="copyClip" data-clipboard-target="#copiarCan" type="button" class="btn btn-primary">Copiar al portapapeles</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- modal validar -->
+
+      <div class="modal fade" id="modalCongelar" tabindex="-1" role="dialog" aria-labelledby="modalCongelar" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header tabs">
+              <h5 class="modal-title text-white" id="modalCongelar">VERSIST a Congelar</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div id="copiarCon">
+                <ol id="listaCon">
+
+                </ol>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button  id="copyClip" type="button" data-clipboard-target="#copiarCon" class="btn btn-primary">Copiar al portapapeles</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script src="../js/jquery-3.4.1.min.js"></script>
+      <script src="../js/bootstrap.min.js"></script>
+      <script src="../js/clipboard.min.js"></script>
+      <script src="../js/funcionesCRUD.js"></script>
+  </body>
+</html>
